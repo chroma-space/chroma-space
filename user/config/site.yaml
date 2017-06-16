@@ -1,0 +1,32 @@
+title: CHRӨMA
+default_lang: en
+author:
+  name: 'Kate'
+  email: kate@chroma.space
+taxonomies:
+  - tags
+metadata:
+  description: 'chroma.space is a creative studio investigating the warp & the rift to feel out alternatives on the horizon.  ecosphere ∩ cybersphere'
+summary:
+  enabled: true
+  format: short
+  size: 300
+  delimiter: '==='
+blog:
+  route: /blog
+menu:
+  home:
+    url: /
+    text: Home
+  about:
+    url: /about
+    text: About
+  projects:
+    url: /#projects
+    text: Projects
+  now:
+    url: /now
+    text: Now
+  contact:
+    url: /contact
+    text: Contact

@@ -1,0 +1,34 @@
+TODO :
+ project page
+ blog posts
+ link blogs posts to projects
+
+SEO :
+description : specific to each page
+tags : idem
+
+Update jQuery + bootstrap
+Images for about et contact : put new images in header ?
+
+Other :
+ RSS Feed ?
+ Panorama ??????
+ Cleanup "media" template
+
+
+Docs
+
+ For media :
+
+  only an image uploaded : this image will be displayed in the header
+  an image and a video : the video will be displayed, and the image will be the poster
+  only a video : the video will be displayed, no poster
+
+  Metadata for videos :
+   put in expert mode > frontmatter
+
+    video_pause (true false)
+    video_mute (true false)
+    play_once (true false)
+    banner_align (top, center, bottom, etc)
+    splash_description (text)
