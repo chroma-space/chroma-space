@@ -1,0 +1,6 @@
+enabled: true
+limit: 10
+description: 'RSS Feed for chroma.space'
+lang: en-us
+length: 500
+enable_json_feed: false

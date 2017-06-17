@@ -1,14 +1,12 @@
 enabled: false
 trackingId: UA-62084469-1
-position: head
+position: body
 objectName: ga
 forceSsl: false
-async: false
+async: true
 anonymizeIp: false
-blockedIps: {  }
 cookieConfig: false
 cookieName: _ga
-cookieDomain: ''
 cookieExpires: 63072000
 debugStatus: false
 debugTrace: false

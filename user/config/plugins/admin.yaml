@@ -1,9 +1,8 @@
 enabled: true
-route: '/admin'
+route: /edition
 cache_enabled: false
 theme: grav
-logo_text: ''
-body_classes: ''
+logo_text: CHRӨMA
 content_padding: true
 sidebar:
   activate: tab
@@ -22,7 +21,7 @@ session:
 warnings:
   delete_page: true
 edit_mode: normal
-show_github_msg: true
+show_github_msg: false
 google_fonts: true
 enable_auto_updates_check: true
 notifications:
@@ -32,8 +31,10 @@ notifications:
   themes: true
 popularity:
   enabled: true
-  ignore: ['/test*','/modular']
+  ignore:
+    - '/test*'
+    - /modular
   history:
-    daily: 30
-    monthly: 12
-    visitors: 20
+    daily: '30'
+    monthly: '12'
+    visitors: '20'
