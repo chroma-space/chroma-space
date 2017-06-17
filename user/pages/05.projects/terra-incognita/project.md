@@ -5,7 +5,6 @@ taxonomy:
         - ecology
         - haptic
         - vr
-routable: true
 visible: true
 ---
 
