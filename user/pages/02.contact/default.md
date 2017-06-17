@@ -1,6 +1,5 @@
 ---
 title: Contact
-video_mute: 'true'
 ---
 
 <a href="http://twitter.com/chroma_space" target="_blank">@chroma_space</a>
