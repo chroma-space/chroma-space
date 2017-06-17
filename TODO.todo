@@ -1,34 +1,54 @@
 TODO :
- project page
- blog posts
- link blogs posts to projects
+  ☐ blog posts => now page ?
+  ☐ link blogs posts to projects
 
 SEO :
-description : specific to each page
-tags : idem
+ ☐ Use an abstract from the content in the meta="description" tag for each project and post
+ ☐ Use taxonomy in meta="tags" for each project and post
 
-Update jQuery + bootstrap
-Images for about et contact : put new images in header ?
+Infrastructure :
+  ☐ Use deployerphp ?
+  ☐ configure mails / smtp server etc
+  ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
 
-Other :
- RSS Feed ?
- Panorama ??????
- Cleanup "media" template
+Content :
+  ☐ Header for "about" page
+  ☐ Header for "now" page
+  ☐ Header for "contact" page
+  ☐ Header for "sta cemo raditi"
+  ☐ Images for "contact" page
+
+Features :
+  ✔ RSS Feed @done (17-06-17 15:02)
+  ✔ Sitemap @done (17-06-17 15:02)
+  ☐ Cleanup "media" template + revoir media pour les noms de fichiers
+  ☐ Update jQuery + bootstrap
+  ☐ Panoramas
+
 
 
 Docs
+---
 
  For media :
 
-  only an image uploaded : this image will be displayed in the header
-  an image and a video : the video will be displayed, and the image will be the poster
-  only a video : the video will be displayed, no poster
+  only an image uploaded - header.png or header.jpg : this image will be displayed in the header
+  an image and a video - poster.png or poster.jpg and header.mp4 : the video will be displayed, and the image will be the poster
+  only a video - header.mp4 : the video will be displayed, no poster
+  thumbnail.png : will be the project thumbnail on the home. If not present, will use header.png/jpg or poster, else cw4.png
+
+  panorama.jpg : ????
 
   Metadata for videos :
    put in expert mode > frontmatter
 
-    video_pause (true false)
-    video_mute (true false)
-    play_once (true false)
-    banner_align (top, center, bottom, etc)
-    splash_description (text)
+    video-pause (true false)
+    video-mute (true false)
+    play-once (true false)
+    banner-align (top, center, bottom, etc)
+    splash-description (text)
+    panorama-longitude-speed: (float)
+    panorama-user-control: (true false)
+
+Taxonomy : is directly administerable in the back end
+
