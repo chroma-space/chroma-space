@@ -14,6 +14,7 @@ set('http_user', 'www-data');
 set('default_stage', 'production');
 set('repository', 'git@github.com:tchapi/chroma-space.git');
 set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp']);
+set('shared_dirs', ['user/data', 'user/pages', 'backup']);
 set('clear_paths', [
   './README.md',
   './LICENSE.txt',
@@ -31,6 +32,7 @@ task('deploy', [
     'deploy:lock',
     'deploy:release',
     'deploy:update_code',
+    'deploy:shared',
     'deploy:vendors',
     'deploy:clear_paths',
     'deploy:writable',

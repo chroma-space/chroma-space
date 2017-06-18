@@ -1,5 +1,4 @@
 ---
 routable: false
-visible: false
 ---
 

@@ -1,6 +1,6 @@
 TODO :
   ☐ blog posts => now page ?
-  ☐ link blogs posts to projects
+  ☐ link blogs posts to projects : related pages plugin
 
 SEO :
  ☐ Use an abstract from the content in the meta="description" tag for each project and post
@@ -8,9 +8,10 @@ SEO :
 
 Infrastructure :
   ✔ Server setup PHP 7.1 + Nginx @done (17-06-18 16:08)
-  ☐ Finish deployerphp setup
+  ✔ Finish deployerphp setup @done (17-06-18 19:45)
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
+  ✔ "user" folder should be shared !!!!!! @done (17-06-18 19:45)
 
 Content :
   ☐ Header for "about" page : waiting for final video (voyager footage)
@@ -19,7 +20,7 @@ Content :
   ☐ Header for "sta cemo raditi"
   ☐ Images for "contact" page : waiting for final panorama
   ☐ Reduce images !
-  ☐ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none
+  ☐ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none (see https://demo.kaliumtheme.com/main/portfolio/capricho/)
 
 Features :
   ✔ RSS Feed @done (17-06-17 15:02)
