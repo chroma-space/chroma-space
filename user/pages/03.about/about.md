@@ -15,12 +15,7 @@ Our projects combine performance and narrative with immersive interactivity, tic
 
 [TEDxBrighton Talk on CHRΘMA](https://www.youtube.com/watch?v=4os_yd51dYY)
 
-<canvas class="panorama" 
-        panorama-images="{{ page.media['pano1.jpg'].url }}"
-        user-control="true"
-        longitude-speed="0.01" 
-        base-url="">
-</canvas>
+<canvas class="panorama" panorama-images="{{ page.media['pano1.jpg'].url }}" user-control="true"></canvas>
 
 Collaborators - past & present
 
