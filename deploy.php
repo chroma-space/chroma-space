@@ -45,6 +45,7 @@ task('deploy', [
 desc('Deploy production parameters and accounts');
 task('deploy:parameters', function () {
     upload('./deploy/admin.{{env}}.yaml', '{{deploy_path}}/release/user/accounts/admin.yaml');
+    upload('./deploy/kate.{{env}}.yaml', '{{deploy_path}}/release/user/accounts/kate.yaml');
     upload('./deploy/security.{{env}}.yaml', '{{deploy_path}}/release/user/config/security.yaml');
 });
 
