@@ -8,7 +8,7 @@ SEO :
 
 Infrastructure :
   ✔ Server setup PHP 7.1 + Nginx @done (17-06-18 16:08)
-  ☐ Use deployerphp ?
+  ☐ Finish deployerphp setup
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
 
@@ -25,13 +25,14 @@ Features :
   ✔ RSS Feed @done (17-06-17 15:02)
   ✔ Sitemap @done (17-06-17 15:02)
   ☐ Cleanup "media" template + revoir media pour les noms de fichiers
-  ☐ Update jQuery + bootstrap
+  ☐ Update jQuery + bootstrap + three js
   ✔ Panoramas @done (17-06-18 16:53)
   ✔ Fix JS @done (17-06-18 16:53)
 
 
 Docs
 ---
+
 
  For media :
 
