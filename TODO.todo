@@ -7,24 +7,27 @@ SEO :
  ☐ Use taxonomy in meta="tags" for each project and post
 
 Infrastructure :
+  ✔ Server setup PHP 7.1 + Nginx @done (17-06-18 16:08)
   ☐ Use deployerphp ?
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
 
 Content :
-  ☐ Header for "about" page
+  ☐ Header for "about" page : waiting for final video (voyager footage)
   ☐ Header for "now" page
   ☐ Header for "contact" page
   ☐ Header for "sta cemo raditi"
-  ☐ Images for "contact" page
+  ☐ Images for "contact" page : waiting for final panorama
+  ☐ Reduce images !
+  ☐ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none
 
 Features :
   ✔ RSS Feed @done (17-06-17 15:02)
   ✔ Sitemap @done (17-06-17 15:02)
   ☐ Cleanup "media" template + revoir media pour les noms de fichiers
   ☐ Update jQuery + bootstrap
-  ☐ Panoramas
-
+  ✔ Panoramas @done (17-06-18 16:53)
+  ✔ Fix JS @done (17-06-18 16:53)
 
 
 Docs

@@ -1,19 +1,26 @@
 ---
 title: About
 body_classes: about
+process:
+    markdown: true
+    twig: true
+twig_first: true
 ---
 
 <a href="http://chroma.space/" target="_blank" class="green" >chroma.space</a> is a creative studio and a many tentacled network voyaging into the unknown. We make media performance, interactive art, urban disruption and games experiments. In this current moment of climate crisis and structural metamorphosis, our mixed reality experiences invite people into alternative collective territories: to hear different stories, see through fresh eyes and experience a different way of being together.  
 
 Our projects combine performance and narrative with immersive interactivity, tickling out the potentials technology, networks and science have for how we understand ourselves as humans in the ecosphere. Inspired by cybernetics and a sense of the deep connection between mental, social and environmental ecology, projects collaborate across disciplines, bringing in diverse perspectives from dance to architecture, magic to neuroscience, social change to physics. The audience’s perception, bodies and movement are vital to the action and our projects engage visceral experience, non verbal communication and invite people to move out of their comfort zone and into fresh terrain.
 
-![](saturns-rings.jpg)
-
 <a href="http://chroma.space/" target="_blank" class="green" >chroma.space</a> was founded by <a href="https://twitter.com/kategenevieve" target="_blank" class="green" >Katharine Vega</a> in 2010 and has been mutating ever since. Work shows in theatre settings, art galleries, outdoors and unusual site-specific installations. Recent projects have shown at the Brighton Dome, London’s Science Museum, Brighton Digital Festival, SCANZ 2013, Oxford’s Light Night, and FACT Liverpool. As well as making, <a href="http://chroma.space/" target="_blank" class="green" >chroma.space</a> runs open labs and research, public events and workshops on the potentials that improvisation, creative technologies and open source culture have for transforming how we sense, communicate and receive information about the earth.
 
 [TEDxBrighton Talk on CHRΘMA](https://www.youtube.com/watch?v=4os_yd51dYY)
 
-![](veda_tunnel_gold.jpg)
+<canvas class="panorama" 
+        panorama-images="{{ page.media['pano1.jpg'].url }}"
+        user-control="true"
+        longitude-speed="0.01" 
+        base-url="">
+</canvas>
 
 Collaborators - past & present
 
@@ -70,3 +77,8 @@ Collaborators - past & present
 <a href="http://www.wakleyanimation.co.uk/" target="_blank">Emma Wakely</a>
 
 <a href="https://twitter.com/simonwibberley" target="_blank">Simon Wibberley</a>
+
+
+<video autoplay loop muted preload="auto" poster="{{ page.media['veda_tunnel_gold.jpg'].url }}">
+<source src="{{ page.media['veda_tunnel_gold.mp4'].url }}" type="video/mp4"/>
+</video>
