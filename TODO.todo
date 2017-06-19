@@ -56,6 +56,12 @@ Docs
     splash-description (text)
     panorama-longitude-speed: (float)
     panorama-user-control: (true false)
+    invert_nav: true
 
 Taxonomy : is directly administerable in the back end
 
+Related pages : via frontmatter
+
+related_pages:
+    - /now/artist-talk-brighton-digital-festival-2013
+    ☐ 
