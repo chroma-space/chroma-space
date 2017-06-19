@@ -1,0 +1,66 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="splash">
+      <video autoplay loop preload="auto" poster="{{ url('theme://images/homepage/musa.jpg') }}">
+        <source src="{{ url('theme://images/homepage/musa.mp4') }}" type="video/mp4"/>
+      </video>
+      <h1 style="display:none"><span class="splash-title">{{ page.title }}</span></h1>    
+    </div>
+    
+    <div id="arrows" class="scrollable" style="margin-top: -100px; text-align: center; opacity: 1; margin-bottom: 30px;">
+      <span id="arrowstext">⇣</span>
+    </div>
+    
+    <div class="about-container" style="background-image: url({{ url('theme://images/homepage/about_background.jpg') }});">
+      <canvas class="about-background"></canvas>
+      <div class="container">
+        <div id="about" class="about">
+          <h1>About</h1>
+          {{ page.content }}
+          <div>
+            <img class="line-icon" src="{{ url('theme://images/homepage/toggle.svg') }}">
+            <a href="/about#about">who we are</a>
+          </div>
+          <div>
+            <img class="line-icon" src="{{ url('theme://images/homepage/overlap.svg') }}">
+            <a href="/now">what we're up to</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="container projects-container">
+      <div id="projects" class="projects">
+
+        <h1 class="page-heading">Projects</h1>
+
+        <div class="project-list row">
+          {% for project in page.collection %}
+            <div class="col-md-3">
+              <div class="project-desc">
+                <div>
+                  <h2>
+                    {{ project.title }}
+                  </h2>
+                  <a class="post-link" href="{{ project.url }}">
+                    <img class="img-circle" src="{% if project.media.images|length > 0 %}{{ (project.media.images|first).cropZoom(300,300).url }}{% else %}cw4.svg{% endif %}" />
+                  </a>
+                  <div class="description">{{project.taxonomy.tags|implode(', ') }}</div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+
+        <p class="text-center" >
+          <a href="mailto:hello@chroma.space">hello@chroma.space</a>  
+          <a href="https://twitter.com/chroma_space">@chroma_space</a>  
+          <a href="https://github.com/chroma-space">gh/chroma-space</a>   
+          <a href="https://www.facebook.com/chroma.space">fb/chroma.space</a> 
+          &#xA9; 2017 chroma.space
+        </p>
+      </div>
+
+    </div><!-- /.container -->
+{% endblock %}

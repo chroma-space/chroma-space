@@ -1,0 +1,13 @@
+{% extends 'partials/base.html.twig' %}
+
+{% block content %}
+    <div class="half-splash">
+        {% include 'partials/media.html.twig' %}
+    </div>
+    <div class="container about">
+        <article>
+          <h1>{{ page.title }}</h1>
+          <div class="text">{{ page.content }}</div>
+        </article>
+    </div>
+{% endblock %}

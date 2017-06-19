@@ -1,0 +1,34 @@
+{% if page.media.videos|length > 0 %}
+
+  <video autoplay loop muted preload="auto" class="
+    {% if page.header.video_pause == "true" %} pauseable-video{% endif %}
+    {% if page.header.play_once == "true" %} play-once{% endif %}
+    banner-{{page.header.banner_align?:'center'}}" 
+    {% if page.media.images|length > 0 %}
+    poster="{{ (page.media.images|first).url }}"
+    {% endif %}
+    >
+    <source src="{{ (page.media.videos|first).url }}" type="video/mp4"/>
+  </video>
+  {% if page.header.video_mute  == 'true' %}
+    <div class="video-controls">
+      <span class="glyphicon glyphicon-volume-off unmute"></span>
+      <span class="glyphicon glyphicon-volume-up mute" style="display:none"></span>
+    </div>
+  {% endif %}
+
+{% elseif page.media.images|length > 0 %}
+  <img class="banner-{{page.header.banner_align?:'center'}}" src="{{ (page.media.images|first).url }}" />
+
+{% elseif page.header.panorama == true %}
+  <canvas class="panorama" style="background-image:/assets/images/{{page.panorama-poster}}" panorama-images="{{page.panorama}}" user-control="{{page.panorama-user-control}}" longitude-speed="{{page.panorama-longitude-speed}}" base-url="/assets/images/"></canvas>
+
+{% endif %}
+
+{% if page.header.splash_description %}
+  <div class="splash-bottom container" style="display:none">
+    <div class="info">
+      {{ page.header.splash_description }}
+    </div>
+  </div>
+{% endif %}
