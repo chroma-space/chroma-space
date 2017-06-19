@@ -37,6 +37,7 @@
 
         <div class="project-list row">
           {% for project in page.collection %}
+            {% set thumbnail = project.media['thumbnail.jpg'].url ?: (project.media['thumbnail.png'].url ?: false) %}
             <div class="col-md-3">
               <div class="project-desc">
                 <div>
@@ -44,7 +45,7 @@
                     {{ project.title }}
                   </h2>
                   <a class="post-link" href="{{ project.url }}">
-                    <img class="img-circle" src="{% if project.media.images|length > 0 %}{{ (project.media.images|first).cropZoom(300,300).url }}{% else %}cw4.svg{% endif %}" />
+                    <img class="img-circle" src="{% if thumbnail %}{{ thumbnail }}{% elseif project.media.images|length > 0 %}{{ (project.media.images|first).cropZoom(300,300).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}" />
                   </a>
                   <div class="description">{{project.taxonomy.tags|implode(', ') }}</div>
                 </div>
