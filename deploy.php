@@ -61,3 +61,10 @@ after('deploy', 'success');
 after('deploy:symlink', 'php-fpm:restart');
 after('deploy:update_code', 'deploy:parameters');
 after('deploy:failed', 'deploy:unlock');
+
+// Special task to upload all the pages while developing
+desc('Send fixtures to server');
+task('fixtures', function () {
+    run('mv {{deploy_path}}/shared/user/pages {{deploy_path}}/shared/user/pages.old');
+    upload('./user/pages', '{{deploy_path}}/shared/user/pages');
+});
