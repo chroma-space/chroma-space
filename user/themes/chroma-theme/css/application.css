@@ -6058,9 +6058,14 @@ div.post-content img {
   text-align: left;
 }
 .splash-bottom {
-  position: relative;
-  height: 30px;
-  margin-bottom: -30px;
+  bottom: 0;
+  position: absolute;
+  color: white;
+  background: rgba(0,0,0,0.5);
+  display: block;
+  margin: 10px;
+  padding: 10px;
+  margin-left: 130px;
 }
 .navbar {
   position: absolute;

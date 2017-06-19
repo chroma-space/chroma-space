@@ -310,58 +310,13 @@ $(function(){
 
 });
 
-$('.splash-bottom').each(function(i,element){
-  var splash = $(element).prev();
-  var isOver = false;
-  var visible = false;
-  var overTime = 0;
-  var delay = 50;
-  var timeOut = 1000;
-  var intervalId;
-  var update = function(){
-    if( isOver ){
-      overTime += delay;
-    }
-    else {
-      overTime -= delay;
-      if( overTime < 0 ) overTime = 0;
-      if( overTime <= 0 ){
-        visible = false;
-        $(element).fadeOut(450);
-        clearInterval(intervalId);
-      }
-      return;
-    }
-    if( overTime >= timeOut ){
 
-      $(element).fadeIn(450);
-      visible = true;
-      clearInterval(intervalId);
-    }
-  };
-
-  var mouseout = function(){
-    isOver = false;
-    clearInterval(intervalId);
-    intervalId = setInterval(update,delay);
-    overTime = timeOut;
-  };
-
-  var mouseover = function(){
-    isOver = true;
-    clearInterval(intervalId);
-    intervalId = setInterval(update,delay);
-    overTime = 0;
-  };
-
-  $(element).hide();
-  $(splash).mouseover(mouseover);
-  $(splash).mouseout(mouseout);
-  $(element).mouseover(mouseover);
-  $(element).mouseout(mouseout);
-
-});
-
+  $('.half-splash').mouseover(function(){
+    $('.splash-bottom').fadeIn();
+  });
+  $('.half-splash').mouseout(function(){
+    $('.splash-bottom').fadeOut();
+  });
 
 $(function(){
 
