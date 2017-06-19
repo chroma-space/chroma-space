@@ -1,0 +1,15 @@
+{% for related_path, score in related_pages %}
+  {% set related = grav['pages'].get(related_path) %}
+  {% set thumbnail = related.media['thumbnail.jpg'].url ?: (related.media['thumbnail.png'].url ?: false) %}
+  <div class="col-sm-2">
+    <div class="project-desc">
+      <div>
+        <h2>
+          {{ related.title }}
+        </h2>
+        <a class="post-link" href="{{ related.url }}"><img src="{% if thumbnail %}{{ thumbnail }}{% elseif related.media.images|length > 0 %}{{ (related.media.images|first).cropZoom(300,300).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}" /></a>
+        <div class="description">{{post.description}}</div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

@@ -6319,3 +6319,7 @@ a.magenta:visited {
   opacity:1;
   animation: fadeIn 0.7s infinite alternate;
 }
+
+.related {
+  margin-bottom: 20px;
+}

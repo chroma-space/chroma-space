@@ -9,20 +9,20 @@ SEO :
 Infrastructure :
   ✔ Server setup PHP 7.1 + Nginx @done (17-06-18 16:08)
   ✔ Finish deployerphp setup @done (17-06-18 19:45)
+  ✔ "user" folder should be shared @done (17-06-18 19:45)
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
   ☐ Remove archive DNS entry ? + fix link in homepage
-  ✔ "user" folder should be shared @done (17-06-18 19:45)
 
 Content :
-  ☐ Header for "about" page : waiting for final video (voyager footage)
   ✔ Header for "now" page @done (17-06-18 22:40)
+  ✔ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none (see https://demo.kaliumtheme.com/main/portfolio/capricho/) @done (17-06-19 11:13)
+  ✔ invert-nav to put back in @done (17-06-19 11:54)
+  ☐ Header for "about" page : waiting for final video (voyager footage)
   ☐ Header for "contact" page
   ☐ Header for "sta cemo raditi"
   ☐ Images for "contact" page : waiting for final panorama
   ☐ Reduce images size
-  ☐ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none (see https://demo.kaliumtheme.com/main/portfolio/capricho/)
-  ☐ invert-nav to put back in
 
 Features :
   ✔ RSS Feed @done (17-06-17 15:02)

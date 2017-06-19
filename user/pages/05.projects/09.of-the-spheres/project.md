@@ -28,4 +28,4 @@ Exploring using new technologies to record human life on this planet and drawing
 
 Through looking beyond our bubbles of personal experience and listening beyond our own spheres of existence can immersive media put us in contact with the multitude of ways that the globe is experienced by different people?  Using techniques of re-mixing the the micro and the macro - life on earth and the sounds and visions NASA is collecting of the cosmos - we’re interested in making alternative perspectives of this earth more visible, audible and knowable.
 
-> Listen to CHROMA talk about the project for a special episode of [http://www.bbc.co.uk/programmes/p01gdq15](BBC Click: Of The Spheres “sea-green")
+> Listen to CHROMA talk about the project for a special episode of <a href="http://www.bbc.co.uk/programmes/p01gdq15">BBC Click: Of The Spheres “sea-green"</a>
