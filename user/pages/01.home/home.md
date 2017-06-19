@@ -6,7 +6,7 @@ content:
         '@page.children': /projects
     order:
         by: date
-        dir: desc
+        dir: asc
     pagination: true
 ---
 

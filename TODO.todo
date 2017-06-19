@@ -11,7 +11,8 @@ Infrastructure :
   ✔ Finish deployerphp setup @done (17-06-18 19:45)
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
-  ✔ "user" folder should be shared !!!!!! @done (17-06-18 19:45)
+  ☐ Remove archive DNS entry ? + fix link in homepage
+  ✔ "user" folder should be shared @done (17-06-18 19:45)
 
 Content :
   ☐ Header for "about" page : waiting for final video (voyager footage)
@@ -19,14 +20,14 @@ Content :
   ☐ Header for "contact" page
   ☐ Header for "sta cemo raditi"
   ☐ Images for "contact" page : waiting for final panorama
-  ☐ Reduce images !
+  ☐ Reduce images size
   ☐ Splash description - caption for images and videos (.splash-bottom.container) -> enlever le display none (see https://demo.kaliumtheme.com/main/portfolio/capricho/)
 
 Features :
   ✔ RSS Feed @done (17-06-17 15:02)
   ✔ Sitemap @done (17-06-17 15:02)
-  ☐ Cleanup "media" template + revoir media pour les noms de fichiers
-  ☐ Update jQuery + bootstrap + three js
+  ✔ Cleanup "media" template + revoir media pour les noms de fichiers @done (17-06-19 10:19)
+  ✔ Update jQuery + bootstrap + three js @done (17-06-19 10:23)
   ✔ Panoramas @done (17-06-18 16:53)
   ✔ Fix JS @done (17-06-18 16:53)
 

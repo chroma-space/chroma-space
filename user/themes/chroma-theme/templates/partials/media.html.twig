@@ -3,7 +3,7 @@
 {% set panorama = page.media['panorama.jpg'].url ?: (page.media['panorama.png'].url ?: false) %}
 {% set video = page.media['header.mp4'].url ?: false %}
 
-{% if video %}
+{% if video or poster %}
 
   <video autoplay loop muted preload="auto" class="
     {% if page.header.video_pause == "true" %} pauseable-video{% endif %}
@@ -24,7 +24,7 @@
   <img class="banner-{{page.header.banner_align?:'center'}}" src="{{ header }}" />
 
 {% elseif panorama %}
-  <canvas class="panorama" style="background-image: url({{ panorama }})" panorama-images="{{ panorama }}" user-control="{{page.header.panorama-user-control}}" longitude-speed="{{page.header.panorama-longitude-speed}}"></canvas>
+  <canvas class="panorama" style="background-image: url({{ panorama }})" panorama-images="{{ panorama }}" user-control="{{page.header.panorama_user_control}}" longitude-speed="{{page.header.panorama_longitude_speed}}"></canvas>
 
 {% endif %}
 
