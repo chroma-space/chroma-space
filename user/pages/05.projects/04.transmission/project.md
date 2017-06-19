@@ -6,6 +6,7 @@ taxonomy:
         - choreography
         - somatics
 visible: true
+invert_nav: true
 ---
 
 <i style="color:#c01616"> 

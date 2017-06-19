@@ -9,6 +9,7 @@ video_pause: true
 play_once: false
 video_mute: true
 banner_align: top-right
+invert_nav: true
 ---
 
 The **Liminal Live Show** is an Audio Visual art show for The Acid: a collaboration between Kate Genevieve, show designer Giani Fabricio and the band. 

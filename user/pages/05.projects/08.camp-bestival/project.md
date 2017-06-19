@@ -9,6 +9,7 @@ video_pause: false
 play_once: false
 video_mute: false
 banner_align: bottom
+invert_nav: true
 related_pages:
     - /now/camp-bestival-2011
     - /now/camp-bestival-2012

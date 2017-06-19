@@ -6,6 +6,7 @@ taxonomy:
         - 'participatory algorithms'
 visible: true
 banner_align: top
+invert_nav: true
 ---
 
 Byzantium is a sound experiment investigating visionary language, birdsong and participatory algorithms. The development of Byzantium during "Build Your Own: Tools for Sharing" invites the public into the [FACTLab](http://www.fact.co.uk/projects/factlab.aspx) to co-create oracles. This project is part of <span class="chroma">CHRΘMA</span>'s running experiment into technological circuits and symbolic, expressive language. Inspired by the historical concept of the "Language of the Birds" or the "green language", a natural and symbolic language of vital communication that exists within everyday words and spoken by birds.  This notion of a magical creative, language runs like a green seam through various cultures and myths. 

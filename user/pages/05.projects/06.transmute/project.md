@@ -5,6 +5,7 @@ taxonomy:
         - 'the night is a tunnel'
 visible: true
 banner_align: top
+invert_nav: true
 ---
 
 > “The night is a tunnel... a hole into tomorrow...” // Frank Herbert, Dune

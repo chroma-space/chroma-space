@@ -8,6 +8,7 @@ taxonomy:
 visible: true
 video_pause: false
 video_mute: true
+invert_nav: true
 ---
 
 <br>

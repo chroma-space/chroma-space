@@ -310,13 +310,12 @@ $(function(){
 
 });
 
-
-  $('.half-splash').mouseover(function(){
-    $('.splash-bottom').fadeIn();
-  });
-  $('.half-splash').mouseout(function(){
-    $('.splash-bottom').fadeOut();
-  });
+$('.half-splash').mouseover(function(){
+  $('.splash-bottom').fadeIn();
+});
+$('.half-splash').mouseleave(function(){
+  $('.splash-bottom').fadeOut();
+});
 
 $(function(){
 

@@ -5,7 +5,7 @@ taxonomy:
         - 'group dreaming'
         - 'cosmic trigger'
 visible: true
-splash_description: '<a href=''http://oneiricarchives.tumblr.com/'' target=''blank''>Visit the Oneiric Archives</a>'
+splash_description: '<a href="http://oneiricarchives.tumblr.com/" target="_blank">Visit the Oneiric Archives</a>'
 banner_align: top
 ---
 

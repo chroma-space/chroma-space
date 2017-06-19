@@ -9,7 +9,7 @@
       </button>
     </div>
     <div id="navbar" class="collapse navbar-collapse">
-      <ul class="nav navbar-nav{% if page.invert-nav %} invert{% endif %}">
+      <ul class="nav navbar-nav{% if page.header.invert_nav %} invert{% endif %}">
         {% for item in site.menu %}
             <li><a href="{{ item.url }}">{{ item.text }}</a></li>
         {% endfor %}
