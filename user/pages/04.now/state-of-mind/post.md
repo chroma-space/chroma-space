@@ -1,7 +1,7 @@
 ---
 title: "Panel @ State of Mind Expo"
-thumbnail: "thumbnail-falling-through-myself.jpg"
-jpg: "002encephalo_graphic/kate-rainbow"
+related_pages:
+    - /projects/falling-through-myself
 ---
 
 ##Art and the Scientific Study of Consciousness panel at State of Mind Expo

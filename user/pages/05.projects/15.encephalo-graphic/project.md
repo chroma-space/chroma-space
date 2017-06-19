@@ -1,5 +1,5 @@
 ---
-title: Encephalo//Graphic
+title: ENCEPHALO//GRAPHIC
 taxonomy:
     tags:
         - Animation

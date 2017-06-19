@@ -1,5 +1,5 @@
 ---
-title: 'Falling Through Myself'
+title: 'FALLING THROUGH MYSELF'
 taxonomy:
     tags:
         - Performance
@@ -7,6 +7,8 @@ taxonomy:
         - Research
 visible: true
 invert_nav: true
+related_pages:
+    - /now/state-of-mind
 ---
 
 Falling Through Myself is movement based performance research exploring the connection between conscious presence and embodiment through visual technologies and staged illusions. In January 2012 Kate Genevieve and Choreographer Genevieve Maxwell completed an R&D workshop at the Sackler Centre for Consciousness Science with a series of meetings with Neuroscientists Dr Anil Seth and Dr Keisuke Suzuki structured around their research into the neurocognitive mechanisms of conscious presence.
