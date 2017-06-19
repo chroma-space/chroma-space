@@ -6134,6 +6134,27 @@ div.post-content img {
   display: block;
   padding-top: 140%;
 }
+
+.related .project-desc {
+  width: 100%;
+}
+.related .project-desc .post-link {
+  display: block;
+}
+.related .project-desc img {
+  padding: 0;
+  position: relative;
+}
+.related .project-desc > div {
+  position: relative;
+}
+.related .project-desc:before {
+  content: "";
+  display: block;
+  padding: 0;
+}
+
+
 body.home div.about-container {
   position: relative;
   background-size: cover;
@@ -6320,6 +6341,6 @@ a.magenta:visited {
   animation: fadeIn 0.7s infinite alternate;
 }
 
-.related {
+h2.related {
   margin-bottom: 20px;
 }

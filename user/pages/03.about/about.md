@@ -74,6 +74,6 @@ Collaborators - past & present
 <a href="https://twitter.com/simonwibberley" target="_blank">Simon Wibberley</a>
 
 
-<video autoplay loop muted preload="auto" poster="{{ page.media['veda_tunnel_gold.jpg'].url }}">
+<video autoplay loop muted preload="auto" style="width: 100%;" poster="{{ page.media['veda_tunnel_gold.jpg'].url }}">
 <source src="{{ page.media['veda_tunnel_gold.mp4'].url }}" type="video/mp4"/>
 </video>

@@ -1,7 +1,3 @@
-TODO :
-  ☐ blog posts => now page ?
-  ☐ link blogs posts to projects : related pages plugin
-
 SEO :
  ☐ Use an abstract from the content in the meta="description" tag for each project and post
  ☐ Use taxonomy in meta="tags" for each project and post
@@ -31,7 +27,11 @@ Features :
   ✔ Update jQuery + bootstrap + three js @done (17-06-19 10:23)
   ✔ Panoramas @done (17-06-18 16:53)
   ✔ Fix JS @done (17-06-18 16:53)
-
+  ✔ link blogs posts to projects : related pages plugin @done (17-06-19 11:55)
+  ☐ Refactor now page
+  ☐ Turn now page into posts
+  ☐ Make doc
+  ☐ Improve README file
 
 Docs
 ---
