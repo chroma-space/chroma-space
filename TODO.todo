@@ -8,7 +8,8 @@ Infrastructure :
   ✔ "user" folder should be shared @done (17-06-18 19:45)
   ☐ configure mails / smtp server etc
   ☐ http://byzantium.chroma.space/ → change DNS ? Where is it hosted ?
-  ☐ Remove archive DNS entry ? + fix link in homepage
+  ☐ Remove archive.chroma.space DNS ?
+  ☐ Remove wiki byzantium ?
 
 Content :
   ✔ Header for "now" page @done (17-06-18 22:40)
@@ -35,6 +36,9 @@ Features :
 
 Docs
 ---
+
+The login page is at /edition
+
 
 
  For media :
