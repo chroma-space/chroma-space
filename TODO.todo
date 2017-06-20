@@ -20,6 +20,7 @@ Content :
   ☐ Header for "sta cemo raditi"
   ☐ Images for "contact" page : waiting for final panorama
   ☐ Reduce images size
+  ☐ OpenGraph tags ?
 
 Features :
   ✔ RSS Feed @done (17-06-17 15:02)
@@ -31,41 +32,5 @@ Features :
   ✔ link blogs posts to projects : related pages plugin @done (17-06-19 11:55)
   ☐ Refactor now page
   ☐ Turn now page into posts
-  ☐ Make doc
-  ☐ Improve README file
-
-Docs
----
-
-The login page is at /edition
-
-
-
- For media :
-
-  only an image uploaded - header.png or header.jpg : this image will be displayed in the header
-  an image and a video - poster.png or poster.jpg and header.mp4 : the video will be displayed, and the image will be the poster
-  only a video - header.mp4 : the video will be displayed, no poster
-  thumbnail.png : will be the project thumbnail on the home. If not present, will use header.png/jpg or poster, else cw4.png
-
-  panorama.jpg : ????
-
-  Metadata for videos :
-   put in expert mode > frontmatter
-
-    video-pause (true false)
-    video-mute (true false)
-    play-once (true false)
-    banner-align (top, center, bottom, etc)
-    splash-description (text)
-    panorama-longitude-speed: (float)
-    panorama-user-control: (true false)
-    invert_nav: true
-
-Taxonomy : is directly administerable in the back end
-
-Related pages : via frontmatter
-
-related_pages:
-    - /now/artist-talk-brighton-digital-festival-2013
-    ☐ 
+  ✔ Make doc @done (17-06-20 23:08)
+  ✔ Improve README file @done (17-06-20 23:08)
