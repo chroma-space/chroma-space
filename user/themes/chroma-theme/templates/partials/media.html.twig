@@ -1,6 +1,6 @@
 {% set poster = page.media['poster.jpg'].url ?: (page.media['poster.png'].url ?: false) %}
 {% set header = page.media['header.jpg'].url ?: (page.media['header.png'].url ?: false) %}
-{% set panorama = page.media['panorama.jpg'].url ?: (page.media['panorama.png'].url ?: false) %}
+{% set panorama = page.media['header-panorama.jpg'].url ?: (page.media['header-panorama.png'].url ?: false) %}
 {% set video = page.media['header.mp4'].url ?: false %}
 
 {% if video or poster %}
