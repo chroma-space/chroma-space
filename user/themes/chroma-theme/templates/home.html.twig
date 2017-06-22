@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="splash">
-      <video autoplay loop preload="auto" poster="{{ url('theme://images/homepage/musa.jpg') }}">
-        <source src="{{ url('theme://images/homepage/musa.mp4') }}" type="video/mp4"/>
+      <video autoplay loop preload="auto" poster="{{ page.media['poster.png'].url?:page.media['poster.jpg'].url }}">
+        <source src="{{ page.media['header.mp4'].url }}" type="video/mp4"/>
       </video>
       <h1 style="display:none"><span class="splash-title">{{ page.title }}</span></h1>    
     </div>
@@ -12,7 +12,7 @@
       <span id="arrowstext">⇣</span>
     </div>
     
-    <div class="about-container" style="background-image: url({{ url('theme://images/homepage/about_background.jpg') }});">
+    <div class="about-container" style="background-image: url({{ page.media['background.png'].url ?: page.media['background.jpg'].url }});">
       <canvas class="about-background"></canvas>
       <div class="container">
         <div id="about" class="about">
