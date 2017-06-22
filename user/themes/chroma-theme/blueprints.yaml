@@ -20,3 +20,27 @@ form:
           0: PLUGIN_ADMIN.DISABLED
         validate:
           type: bool
+    social.facebook:
+        type: text
+        size: medium
+        label: Facebook
+        validate:
+          type: text
+    social.twitter:
+        type: text
+        size: medium
+        label: Twitter
+        validate:
+          type: text
+    social.github:
+        type: text
+        size: medium
+        label: Github
+        validate:
+          type: text
+    social.mail:
+        type: text
+        size: medium
+        label: Mail
+        validate:
+          type: text

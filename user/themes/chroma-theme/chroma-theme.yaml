@@ -1,3 +1,8 @@
 enabled: true
 dropdown:
   enabled: true
+social:
+  facebook: https://www.facebook.com/chroma.space
+  twitter: https://twitter.com/chroma_space
+  github: https://github.com/chroma-space
+  mail: hello@chroma.space

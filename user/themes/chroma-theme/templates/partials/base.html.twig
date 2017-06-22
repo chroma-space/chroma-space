@@ -40,6 +40,8 @@
     {% block content %}{% endblock %}
 {% endblock %}
 
+{% include 'partials/footer.html.twig' %}
+
 {% block javascripts %}
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') %}
     {% do assets.addJs('theme://js/bootstrap.min.js') %}
