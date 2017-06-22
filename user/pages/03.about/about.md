@@ -17,37 +17,37 @@ Our projects combine performance and narrative with immersive interactivity, tic
 
 <canvas class="panorama" panorama-images="{{ page.media['pano1.jpg'].url }}" user-control="true"></canvas>
 
-Collaborators - past & present
+### Collaborators - past & present
+
+![](kate.png?classes=collaborator) [Katharine Vega](http://www.kategenevieve.com/)
 
 [Hannah Abdullah](https://www.facebook.com/blindtigerclub?pnref=about.overview)
 
-<a href="https://vimeo.com/leskos" target="_blank">Louis d'Aboville</a>
+[Louis d'Aboville](https://vimeo.com/leskos)
 
 [Isobel Anderson](http://www.isobelanderson.com)
 
-<a href="http://stillpointtheatre.co.uk/" target="_blank">Rachel Blackman</a>  
+[Rachel Blackman](http://stillpointtheatre.co.uk/)
 
-<a href="http://julierosebower.com/" target="_blank">Julie Rose Bower</a>
+[Julie Rose Bower](http://julierosebower.com/)
 
 [Owen Daughtery](https://twitter.com/owendaughtery)
 
-<a href="https://vimeo.com/ultimaproductions" target="_blank">Giani Fabricio</a>
+[Giani Fabricio](https://vimeo.com/ultimaproductions)
 
 [Thomas Fraps](http://www.thomasfraps.com/english/index_e.html)
 
 [Valerie Furnham](http://www.valeriefurnham.com/)
 
-<a href="http://www.kategenevieve.com/" target="_blank">Katharine Vega</a>
+[Richard Gladman](http://richardgladman.co.uk/)
 
-<a href="http://richardgladman.co.uk/" target="_blank">Richard Gladman</a>
+[Wes Goatley](https://soundcloud.com/lumbers)
 
-<a href=" https://soundcloud.com/lumbers" target="_blank">Wes Goatley</a>
-
-<a href="http://www.alexandtheweb.com/blatherings/" target="_blank">Alex Goluszko</a>
+[Alex Goluszko](http://www.alexandtheweb.com/blatherings/)
 
 [Paul Hayes](https://github.com/paulhayes)
 
-<a href="https://twitter.com/hyperoculus" target="_blank">Hyper Oculus</a>
+[Hyper Oculus](https://twitter.com/hyperoculus)
 
 [Christian Krupa](https://vimeo.com/christiankrupa)
 
@@ -57,21 +57,21 @@ Collaborators - past & present
 
 [Gascia Ouzounian](http://www.optophono.com/#!gascia/c1gnq)
 
-<a href="http://sheepfilms.co.uk/" target="_blank">David Packer</a>
+[David Packer](http://sheepfilms.co.uk/)
 
-<a href="http://callofthewildgeese.com/" target="_blank">Anne Rupert </a>
+[Anne Rupert](http://callofthewildgeese.com/)
 
 [Vjeran Salamon](http://www.imdb.com/name/nm1362388/)
 
-<a href="http://willscobie.tumblr.com" target="_blank">Will Scobie</a>
+[Will Scobie](http://willscobie.tumblr.com)
 
-<a href="http://tobyz.net/" target="_blank">Toby Sparks</a>
+[Toby Sparks](http://tobyz.net/)
 
-<a href="http://www.sussex.ac.uk/informatics/people/peoplelists/person/282393" target="_blank">Keisuke Suzuki</a>
+[Keisuke Suzuki](http://www.sussex.ac.uk/informatics/people/peoplelists/person/282393)
 
-<a href="http://www.wakleyanimation.co.uk/" target="_blank">Emma Wakely</a>
+[Emma Wakely](http://www.wakleyanimation.co.uk/)
 
-<a href="https://twitter.com/simonwibberley" target="_blank">Simon Wibberley</a>
+[Simon Wibberley](https://twitter.com/simonwibberley)
 
 
 <video autoplay loop muted preload="auto" style="width: 100%;" poster="{{ page.media['veda_tunnel_gold.jpg'].url }}">

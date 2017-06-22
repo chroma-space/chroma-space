@@ -285,18 +285,6 @@ $(function(){
 
       }
 
-      var onWindowResize = function(){
-
-          camera.aspect = $(pano).parent().width() / $(pano).parent().height();
-          camera.updateProjectionMatrix();
-
-          renderer.setSize( $(pano).parent().width(), $(pano).parent().height() );
-
-      }
-
-      window.addEventListener( 'resize', onWindowResize, false );
-
-
       // listeners
       if( userControl ){
         document.addEventListener("mousedown", onDocumentMouseDown, false);
