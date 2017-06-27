@@ -47,7 +47,7 @@
                   <a class="post-link" href="{{ project.url }}">
                     <img class="img-circle" src="{% if thumbnail %}{{ thumbnail }}{% elseif project.media.images|length > 0 %}{{ (project.media.images|first).cropZoom(300,300).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}" />
                   </a>
-                  <div class="description">{{project.taxonomy.tags|implode(', ') }}</div>
+                  <div class="description">{{ (project.taxonomy.tags|default(""))|implode(', ') }}</div>
                 </div>
               </div>
             </div>
