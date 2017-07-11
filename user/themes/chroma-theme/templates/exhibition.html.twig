@@ -1,0 +1,24 @@
+{% extends 'partials/base.html.twig' %}
+{% set menu = false %}
+
+{% block content %}
+    <div class="half-splash">
+        {% include 'partials/media.html.twig' %}
+    </div>
+    <div class="container">
+      <article class="post-content">
+        <div class="back_exhibition"><a href="{{ home_url }}">⇦ Back to the chroma.space website</a></div>
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-content">{{ page.content }}</div>
+      </article>
+    </div>
+
+    {% if config.plugins.relatedpages.enabled and related_pages|length > 0 %}
+    <div class="container">
+      <h2 class="related">Related posts</h2>
+      <div class="related project-list row">
+        {% include 'partials/related_pages.html.twig' %}
+      </div>
+    </div>
+    {% endif %}
+{% endblock %}
