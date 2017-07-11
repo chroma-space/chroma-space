@@ -13,7 +13,7 @@ set('ssh_multiplexing', true);
 set('http_user', 'www-data');
 set('default_stage', 'production');
 set('repository', 'git@github.com:tchapi/chroma-space.git');
-set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp']);
+set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp', 'user/pages', 'user/data']);
 set('shared_dirs', ['user/data', 'user/pages', 'backup']);
 set('clear_paths', [
   './README.md',
@@ -65,6 +65,8 @@ after('deploy:failed', 'deploy:unlock');
 // Special task to upload all the pages while developing
 desc('Send fixtures to server');
 task('fixtures', function () {
+    run('rm -rf {{deploy_path}}/shared/user/pages.old');
     run('mv {{deploy_path}}/shared/user/pages {{deploy_path}}/shared/user/pages.old');
     upload('./user/pages', '{{deploy_path}}/shared/user/pages');
 });
+after('fixtures', 'deploy:writable');
