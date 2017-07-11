@@ -1,5 +1,7 @@
 ---
-title: "Panel @ State of Mind Expo"
+title: 'Panel @ State of Mind Expo'
+date: '30-06-2012 00:00'
+publish_date: '30-06-2012 00:00'
 related_pages:
     - /projects/falling-through-myself
 ---

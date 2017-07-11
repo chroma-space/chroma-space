@@ -1,5 +1,7 @@
 ---
 title: 'Camp Bestival 2012'
+date: '26-07-2012 00:00'
+publish_date: '26-07-2012 00:00'
 related_pages:
     - /projects/camp-bestival
 ---

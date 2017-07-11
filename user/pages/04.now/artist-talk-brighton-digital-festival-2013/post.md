@@ -1,5 +1,7 @@
 ---
 title: 'Artist Talk Brighton Digital Festival 2013'
+date: '30-09-2013 00:00'
+publish_date: '30-09-2013 00:00'
 invert_nav: true
 splash_description: '<a href="http://vimeo.com/65454918">Heliosphere trailer</a> from <a href="http://vimeo.com/chromaspace">C H R Θ M A</a> on Vimeo.'
 related_pages:
