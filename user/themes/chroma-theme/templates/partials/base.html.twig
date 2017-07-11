@@ -34,7 +34,9 @@
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
 
+{% if menu %}
 {% include 'partials/nav.html.twig' %}
+{% endif %}
 
 {% block body %}
     {% block content %}{% endblock %}
