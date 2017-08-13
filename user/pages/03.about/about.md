@@ -19,13 +19,24 @@ Our projects combine performance and narrative with immersive interactivity, tic
 
 ### Collaborators - past & present
 
-![](kate.png?classes=collaborator) [Katharine Vega](http://www.kategenevieve.com/)
-
-[Hannah Abdullah](https://www.facebook.com/blindtigerclub?pnref=about.overview)
-
-[Louis d'Aboville](https://vimeo.com/leskos)
-
-[Isobel Anderson](http://www.isobelanderson.com)
+<div class="row">
+<div class="collaborator col-md-3">
+<img src="{{ page.media['kate.png'].url }}">
+<a href="http://www.kategenevieve.com/">Katharine Vega</a>
+</div>
+<div class="collaborator col-md-3">
+<img src="{{ page.media['kate.png'].url }}">
+<a href="https://www.facebook.com/blindtigerclub?pnref=about.overview">Hannah Abdullah</a>
+</div>
+<div class="collaborator col-md-3">
+<img src="{{ page.media['kate.png'].url }}">
+<a href="http://www.isobelanderson.com">Isobel Anderson</a>
+</div>
+<div class="collaborator col-md-3">
+<img src="{{ page.media['kate.png'].url }}">
+<a href="https://vimeo.com/leskos">Louis d'Aboville</a>
+</div>
+</div>
 
 [Rachel Blackman](http://stillpointtheatre.co.uk/)
 
