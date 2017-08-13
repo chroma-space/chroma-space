@@ -16,6 +16,7 @@
         "symfony/var-dumper": "~2.8",
         "symfony/polyfill-iconv": "~1.0",
         "doctrine/cache": "~1.5",
+        "doctrine/collections": "1.3",
         "filp/whoops": "~2.0",
         "matthiasmullie/minify": "^1.3",
         "monolog/monolog": "~1.0",
@@ -29,17 +30,18 @@
         "ext-curl": "*",
         "ext-zip": "*",
         "league/climate": "^3.2",
-        "antoligy/dom-string-iterators": "^1.0"
+        "antoligy/dom-string-iterators": "^1.0",
+        "miljar/php-exif": "^0.6.3"
     },
     "require-dev": {
         "codeception/codeception": "^2.1",
         "phpunit/php-code-coverage": "~2.0",
-        "fzaninotto/faker": "^1.5",
-        "deployer/deployer": "^4.0"
+        "fzaninotto/faker": "^1.5"
     },
     "autoload": {
         "psr-4": {
-            "Grav\\": "system/src/Grav"
+            "Grav\\": "system/src/Grav",
+            "Grav\\Plugin\\SocialFeed\\": "user/plugins/social-feed/src/"
         },
         "files": ["system/defines.php"]
     },
