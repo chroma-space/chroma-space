@@ -11,44 +11,27 @@
             <h1 class="post-title">NOW</h1>
         </header>
 
-        <div class="post-list row auto-clear">
-          {% for post in page.collection if post.date|date("U") > "now"|date_modify("-1 year")|date("U") %}
-            <div class="col-md-3">
-              <div class="post-desc">
-                <div>
-                  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                  <div class="date">{{ post.date|date("d-m-Y") }}</div>
-                  <div>{{ post.content[:200]|striptags }} ...</div>
-                  <a class="post-link" href="{{ post.url }}">See more</a>
-                </div>
-              </div>
-            </div>
-          {% else %}
-          <div class="col-md-12">
-            <em>No recent events yet ...</em>
-          </div>
-          {% endfor %}
-        </div>
-        
-        <header class="post-header">
-            <h2 class="post-title">Events archive</h2>
-        </header>
+        {% set postData = socialPosts() %}
+        <ul>
+            {% for post in postData.posts %}
+            <li>{{ post.body }}</li>
+            {% endfor %}
+        </ul>
 
-        <div class="post-list row auto-clear">
-          {% for post in page.collection if post.date|date("U") < "now"|date_modify("-1 year")|date("U") %}
-            <div class="col-md-3">
-              <div class="post-desc">
-                <div>
-                  <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                  <div class="date">{{ post.date|date("d-m-Y") }}</div>
-                  <div>{{ post.content[:200]|striptags }} ...</div>
-                  <a class="post-link" href="{{ post.url }}">See more</a>
-                </div>
-              </div>
-            </div>
+        <div class="post-list">
+          {% for post in page.collection %}
+            {% set thumbnail = post.media['thumbnail.jpg'].url ?: (post.media['thumbnail.png'].url ?: false) %}
+              <a class="now-post-link" href="{{ post.url }}" style="
+              background-image: url('{% if thumbnail %}{{ thumbnail }}{% elseif post.media.images|length > 0 %}{{ (post.media.images|first).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}'); 
+              width: {{ (1+random(1)) * 210 }}px; 
+              height: {{ (1+random(1)) * 210 }}px"
+              >
+                <span class="now-date">{{ post.date|date("d-m-Y") }}</span>
+                <span class="now-title">{{ post.title }}</span>
+              </a>
           {% else %}
           <div class="col-md-12">
-            <em>No archive events so far ...</em>
+            <em>Nothing so far ...</em>
           </div>
           {% endfor %}
         </div>
@@ -56,4 +39,18 @@
         <div class="now-container">{{ page.content }}</div>
 
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% do assets.addJs('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js') %}
+    {% do assets.addJs('theme://js/packery.min.js') %}
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('.post-list').isotope({
+          layoutMode: 'packery',
+          itemSelector: '.now-post-link',
+        });
+      })
+      </script>
 {% endblock %}

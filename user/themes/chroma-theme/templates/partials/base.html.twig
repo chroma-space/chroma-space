@@ -45,6 +45,9 @@
 {% include 'partials/footer.html.twig' %}
 
 {% block javascripts %}
+    <script type="text/javascript">
+        var quotes = {{ grav.theme.config.quotes|json_encode }};
+    </script>
     {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') %}
     {% do assets.addJs('theme://js/bootstrap.min.js') %}
     {% do assets.addJs('http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js') %}

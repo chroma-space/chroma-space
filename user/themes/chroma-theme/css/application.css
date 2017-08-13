@@ -6411,3 +6411,46 @@ div.back_exhibition {
     .auto-clear .col-xs-4:nth-child(3n+1){clear:left;}
     .auto-clear .col-xs-6:nth-child(odd){clear:left;}
 }
+
+
+.row .collaborator {
+  text-align: center;
+  padding: 20px;
+}
+.row .collaborator img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact h3 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.post-link {
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.now-post-link {
+  box-sizing: border-box;
+  float: left;
+  display: block;
+  position: relative;
+  /*margin-bottom: 10px;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 10px solid white;
+}
+
+.now-date, .now-title {
+  position: absolute;
+  color: white;
+  bottom: 40px;
+  left: 20px;
+  font-size: 2em;
+}
+.now-date {
+  bottom: 10px;
+  font-size: 1em;
+}

@@ -10,6 +10,17 @@ homepage: https://github.com/chroma-space/website
 form:
   validation: loose
   fields:
+    quotes:
+        type: list
+        style: vertical
+        label: Quotes
+        fields:
+          .quote:
+            type: text
+            label: Quote
+          .author:
+            type: text
+            label: Author
     dropdown.enabled:
         type: toggle
         label: Dropdown in Menu

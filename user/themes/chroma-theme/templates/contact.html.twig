@@ -1,0 +1,28 @@
+{% extends 'partials/base.html.twig' %}
+{% set menu = true %}
+
+{% block content %}
+    <div class="half-splash">
+        {% include 'partials/media.html.twig' %}
+    </div>
+    <div class="container">
+        <div class="post contact">
+            <header class="post-header">
+                <h1 class="post-title">{{ page.title }}</h1>
+            </header>
+
+            <article class="post-content">
+                <div class="post-content">
+                    {{ page.content }}
+                    <h3 class="post-title">Projects</h3>
+                    <ul>
+                    {% for project in page.collection %}
+                        <li>{{ project.title }}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </article>
+
+        </div>
+    </div>
+{% endblock %}
