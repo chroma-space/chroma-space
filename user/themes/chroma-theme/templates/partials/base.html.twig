@@ -48,9 +48,9 @@
     <script type="text/javascript">
         var quotes = {{ grav.theme.config.quotes|json_encode }};
     </script>
-    {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js') %}
-    {% do assets.addJs('theme://js/bootstrap.min.js') %}
-    {% do assets.addJs('http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js') %}
+    {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', 1000) %}
+    {% do assets.addJs('theme://js/bootstrap.min.js', 900) %}
+    {% do assets.addJs('http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js', 800) %}
     {% do assets.addJs('theme://js/main.js') %}
 {% endblock %}
 {{ assets.js() }}
