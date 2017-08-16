@@ -5,7 +5,7 @@ namespace Deployer;
 require_once 'recipe/common.php';
 
 // Configuration
-serverList('deploy/servers.yml');
+inventory('deploy/servers.yml');
 
 set('env', 'prod');
 set('ssh_type', 'native');
