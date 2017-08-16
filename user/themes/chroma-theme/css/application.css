@@ -6436,21 +6436,29 @@ div.back_exhibition {
   float: left;
   display: block;
   position: relative;
-  /*margin-bottom: 10px;*/
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   border: 10px solid white;
 }
 
+.now-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #DDD;
+}
+.now-picto {
+  width: 18px;
+  margin-bottom: 3px;
+}
 .now-date, .now-title {
   position: absolute;
-  color: white;
+  color: black;
   bottom: 40px;
   left: 20px;
-  font-size: 2em;
+  font-size: 1.2em;
+  background: white;
+  padding: 3px;
 }
 .now-date {
-  bottom: 10px;
-  font-size: 1em;
+  bottom: 20px;
+  font-size: 0.8em;
 }

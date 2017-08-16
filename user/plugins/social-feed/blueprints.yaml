@@ -1,0 +1,56 @@
+name: Social Feed Reworked
+version: 0.1.1
+description: This Grav plugin allows you to fetch feeds from social networks - reworked from the Social Feed plugin
+icon: share-alt
+author:
+  name: Tchap
+  email: tchap@tchap.me
+homepage: https://tchap.me
+keywords: grav, plugin, social feed
+license: MIT
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: Plugin status
+      highlight: 1
+      default: 0
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    twitter:
+      type: section
+      title: Twitter config
+      underline: true
+      fields:
+        twitter_consumer_key:
+          type: text
+          label: Consumer key
+        twitter_consumer_secret:
+          type: text
+          label: Consumer secret
+        twitter_feeds:
+          type: list
+          label: Accounts to follow
+          fields:
+            .username:
+              type: text
+              label: Username
+    instagram:
+      type: section
+      title: Instagram config
+      underline: true
+      fields:
+        instagram_client_id:
+          type: text
+          label: Client id
+        instagram_access_token:
+          type: text
+          label: Access token
+        instagram_username:
+          type: text
+          label: Username

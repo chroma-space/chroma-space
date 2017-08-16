@@ -10,33 +10,43 @@
         <header class="post-header">
             <h1 class="post-title">NOW</h1>
         </header>
-
-        {% set postData = socialPosts() %}
-        <ul>
-            {% for post in postData.posts %}
-            <li>{{ post.body }}</li>
-            {% endfor %}
-        </ul>
+      
+        <div class="now-container">{{ page.content }}</div>
 
         <div class="post-list">
-          {% for post in page.collection %}
-            {% set thumbnail = post.media['thumbnail.jpg'].url ?: (post.media['thumbnail.png'].url ?: false) %}
-              <a class="now-post-link" href="{{ post.url }}" style="
-              background-image: url('{% if thumbnail %}{{ thumbnail }}{% elseif post.media.images|length > 0 %}{{ (post.media.images|first).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}'); 
-              width: {{ (1+random(1)) * 210 }}px; 
-              height: {{ (1+random(1)) * 210 }}px"
-              >
-                <span class="now-date">{{ post.date|date("d-m-Y") }}</span>
-                <span class="now-title">{{ post.title }}</span>
+          {% for item in aggregate(page.collection) %}
+
+            {% set w = (1+random(1)) * 210 %}
+            {% set h = (1+random(1)) * 210 %}
+
+            {% if item.type == "page" %}
+              {% set page = item.data %}
+              {% set thumbnail = page.media['thumbnail.jpg'].url ?: (page.media['thumbnail.png'].url ?: false) %}
+              <a class="now-post-link" href="{{ page.url }}">
+                <div class="now-image" style="
+                      background-image: url('{% if thumbnail %}{{ thumbnail }}{% elseif page.media.images|length > 0 %}{{ (page.media.images|first).url }}{% else %}{{ url('theme://images/thumbnail.svg') }}{% endif %}'); 
+                      width: {{ w }}px; height: {{ h }}px">
+                  <span class="now-date">{{ page.date|date("d-m-Y") }}</span>
+                  <span class="now-title">{{ page.title }}</span>
+                </div>
               </a>
+            {% else %}
+              {% set post = item.data %}
+              <a class="now-post-link" href="{{ post.link }}">
+                <div class="now-image" style="
+                              background-image: url('{{ post.fileUrl }}'); 
+                              width: {{ w }}px; height: {{ h }}px">
+                  <span class="now-date">{{ item.date|date("d-m-Y") }}</span>
+                  <span class="now-title"><img class="now-picto" src="{{ url('theme://images/' ~ post.provider ~ '.png') }}"> {{ post.headline|slice(0,20) }}...</span>
+                </div>
+              </a>
+            {% endif %}
           {% else %}
           <div class="col-md-12">
             <em>Nothing so far ...</em>
           </div>
           {% endfor %}
         </div>
-      
-        <div class="now-container">{{ page.content }}</div>
 
     </div>
 {% endblock %}
@@ -45,12 +55,5 @@
     {{ parent() }}
     {% do assets.addJs('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js') %}
     {% do assets.addJs('theme://js/packery.min.js') %}
-    <script type="text/javascript">
-      $(document).ready(function(){
-        $('.post-list').isotope({
-          layoutMode: 'packery',
-          itemSelector: '.now-post-link',
-        });
-      })
-      </script>
+    {% do assets.addJs('theme://js/now.js') %}
 {% endblock %}
