@@ -116,9 +116,10 @@ images:
 media:
   enable_media_timestamp: false
   upload_limit: 0
+  auto_metadata_exif: false
 session:
   enabled: true
-  timeout: 1800
+  timeout: 86400
   name: chroma-session
   secure: false
   httponly: true
