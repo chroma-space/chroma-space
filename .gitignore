@@ -31,8 +31,6 @@ Icon?
 Thumbs.db
 *.swp
 
-# phpstorm
-.idea/*
 user/config/security.yaml
 
 tests/_output/*
@@ -45,3 +43,5 @@ deploy/*
 !deploy/nginx.conf
 
 TODO.todo
+
+user/media/*.jpeg
