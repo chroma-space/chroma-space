@@ -13,7 +13,7 @@ To install, just use [Composer](https://getcomposer.org/) :
 
 To fetch Instagram post once, run :
 
-    /var/www/chroma.space/current/bin/plugin social-feed fetch:posts
+    cd /var/www/chroma.space/current/ && bin/plugin social-feed fetch:posts
 
 ### Deployment
 

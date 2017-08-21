@@ -1,6 +1,6 @@
 {% set theme_config = attribute(config.themes, config.system.pages.theme) %}
 <!DOCTYPE html>
-<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<html lang="en">
 <head>
 {% block head %}
     <meta charset="utf-8" />
@@ -18,6 +18,38 @@
 
     <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Raleway:400,200&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,greek' rel='stylesheet' type='text/css'>
+
+    <meta property="og:title" content="{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
+    <meta property="og:type" content="website"/>
+    <meta itemprop="name" content="{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}">
+
+    <meta property="og:url" content="{{ page.url(true) }}"/>
+
+    {% block social %}
+
+        {% set social = page.media['poster.jpg'].url ?: (page.media['poster.png'].url ?: (page.media['header.jpg'].url ?: (page.media['header.png'].url ?: url('theme://images/social.png')))) %}
+
+        {% if page.url == "/" %}
+            <meta property="og:image" content="{{ url('theme://images/social.png', true) }}"/>
+            <meta itemprop="image" content="{{ url('theme://images/social.png', true) }}">
+        {% else %}
+            <meta property="og:image" content="{{ base_url_absolute }}{{ social }}"/>
+            <meta itemprop="image" content="{{ base_url_absolute }}{{ social }}">
+        {% endif %}
+
+        {% if page.url == "/" or page.content|length < 3 %}
+            {% for meta in page.metadata %}
+                {% if meta.name == "description" %}
+                    <meta itemprop="description" content="{{ meta.content }}">
+                    <meta property="og:description" content="{{ meta.content }}"/>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <meta itemprop="description" content="{{ page.content|striptags|slice(0, 150)|replace('\n', ' ') }} ...">
+            <meta property="og:description" content="{{ page.content|striptags|slice(0, 150)|replace('\n', ' ') }} ..."/>
+        {% endif %}
+
+    {% endblock %}
 
     {% block stylesheets %}
         {% do assets.addCss('theme://css/application.css', 98) %}

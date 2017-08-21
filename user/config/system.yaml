@@ -14,7 +14,7 @@ languages:
   override_locale: false
 home:
   alias: /home
-  hide_in_urls: false
+  hide_in_urls: true
 pages:
   theme: chroma-theme
   order:
@@ -75,6 +75,7 @@ cache:
     method: file
   driver: auto
   prefix: g
+  clear_images_by_default: true
   cli_compatibility: false
   lifetime: 604800
   gzip: false
