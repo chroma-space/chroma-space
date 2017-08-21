@@ -9,6 +9,12 @@ To install, just use [Composer](https://getcomposer.org/) :
 
     composer install
 
+### Cron
+
+To fetch Instagram post once, run :
+
+    /var/www/chroma.space/current/bin/plugin social-feed fetch:posts
+
 ### Deployment
 
 We use [Deployer](https://deployer.org/) to build the site and deploy it on the [chroma.space](http://chroma.space) server. Deployer expects a `server.yml` file in `/deploy` that lists the stages, especially `production`.

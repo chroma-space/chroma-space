@@ -67,6 +67,6 @@ desc('Send fixtures to server');
 task('fixtures', function () {
     run('rm -rf {{deploy_path}}/shared/user/pages.old');
     run('mv {{deploy_path}}/shared/user/pages {{deploy_path}}/shared/user/pages.old');
-    upload('./user/pages', '{{deploy_path}}/shared/user/pages');
+    upload('./user/pages', '{{deploy_path}}/shared/user/.');
 });
 after('fixtures', 'deploy:writable');
