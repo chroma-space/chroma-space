@@ -5,6 +5,7 @@ process:
     markdown: true
     twig: true
 twig_first: true
+invert_nav: true
 ---
 
 <a href="http://chroma.space/" target="_blank" class="green" >chroma.space</a> is a creative studio and a many tentacled network voyaging into the unknown. We make media performance, interactive art, urban disruption and games experiments. In this current moment of climate crisis and structural metamorphosis, our mixed reality experiences invite people into alternative collective territories: to hear different stories, see through fresh eyes and experience a different way of being together.  
@@ -15,28 +16,30 @@ Our projects combine performance and narrative with immersive interactivity, tic
 
 [TEDxBrighton Talk on CHRΘMA](https://www.youtube.com/watch?v=4os_yd51dYY)
 
-<canvas class="panorama" panorama-images="{{ page.media['pano1.jpg'].url }}" user-control="true"></canvas>
+<canvas class="panorama" panorama-images="{{ page.media['panorama.jpg'].url }}" user-control="true"></canvas>
 
 ### Collaborators - past & present
 
 <div class="row">
 <div class="collaborator col-md-3">
-<img src="{{ page.media['kate.png'].url }}">
+<img src="{{ page.media['profile_kate.jpg'].url }}">
 <a href="http://www.kategenevieve.com/">Katharine Vega</a>
 </div>
 <div class="collaborator col-md-3">
-<img src="{{ page.media['kate.png'].url }}">
-<a href="https://www.facebook.com/blindtigerclub?pnref=about.overview">Hannah Abdullah</a>
+<img src="{{ page.media['profile_idil.jpg'].url }}">
+<a href="http://www.icimage.me/">Idil Ceren Bozkurt</a>
 </div>
 <div class="collaborator col-md-3">
-<img src="{{ page.media['kate.png'].url }}">
+<img src="{{ page.media['profile_marta.png'].url }}">
+<a href="http://martagarcialarriu.com/">Marta Garcia Larriu</a>
+</div>
+</div>
+
 <a href="http://www.isobelanderson.com">Isobel Anderson</a>
-</div>
-<div class="collaborator col-md-3">
-<img src="{{ page.media['kate.png'].url }}">
+
 <a href="https://vimeo.com/leskos">Louis d'Aboville</a>
-</div>
-</div>
+
+<a href="https://www.facebook.com/blindtigerclub?pnref=about.overview">Hannah Abdullah</a>
 
 [Rachel Blackman](http://stillpointtheatre.co.uk/)
 
