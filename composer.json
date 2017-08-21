@@ -36,8 +36,7 @@
     "require-dev": {
         "codeception/codeception": "^2.1",
         "phpunit/php-code-coverage": "~2.0",
-        "fzaninotto/faker": "^1.5",
-        "deployer/deployer": "^5.1"
+        "fzaninotto/faker": "^1.5"
     },
     "autoload": {
         "psr-4": {
