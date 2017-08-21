@@ -30,8 +30,8 @@
         {% set social = page.media['poster.jpg'].url ?: (page.media['poster.png'].url ?: (page.media['header.jpg'].url ?: (page.media['header.png'].url ?: url('theme://images/social.png')))) %}
 
         {% if page.url == "/" %}
-            <meta property="og:image" content="{{ base_url_absolute }}{{ url('theme://images/social.png') }}"/>
-            <meta itemprop="image" content="{{ base_url_absolute }}{{ url('theme://images/social.png') }}">
+            <meta property="og:image" content="{{ url('theme://images/social.png', true) }}"/>
+            <meta itemprop="image" content="{{ url('theme://images/social.png', true) }}">
         {% else %}
             <meta property="og:image" content="{{ base_url_absolute }}{{ social }}"/>
             <meta itemprop="image" content="{{ base_url_absolute }}{{ social }}">
