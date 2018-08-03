@@ -38,7 +38,14 @@ class SocialFeedCommand extends ConsoleCommand
         $posts = array();
         $manager = new PostManager(true);
 
-        foreach ($this->get() as $item) {
+        $posts = $this->get();
+
+        if (!$posts) {
+            $this->error('No posts could be retrieved.');
+            return;
+        }
+
+        foreach ($posts as $item) {
             
             $post = new Post();
             
