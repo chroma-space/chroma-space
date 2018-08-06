@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="/favicon.gif" type="image/gif" />
     <link rel="shortcut icon" href="/favicon.gif" type="image/x-icon" />
 
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:300,400|Raleway:400,200&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,greek' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Josefin+Sans:300,400|Raleway:400,200&subset=latin,latin-ext' rel='stylesheet' type='text/css'/>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400&subset=latin,greek' rel='stylesheet' type='text/css'>
 
     <meta property="og:title" content="{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}"/>
     <meta property="og:type" content="website"/>
@@ -80,9 +80,9 @@
     <script type="text/javascript">
         var quotes = {{ grav.theme.config.quotes|json_encode }};
     </script>
-    {% do assets.addJs('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', 1000) %}
+    {% do assets.addJs('//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js', 1000) %}
     {% do assets.addJs('theme://js/bootstrap.min.js', 900) %}
-    {% do assets.addJs('http://cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js', 800) %}
+    {% do assets.addJs('//cdnjs.cloudflare.com/ajax/libs/three.js/r69/three.min.js', 800) %}
     {% do assets.addJs('theme://js/main.js') %}
 {% endblock %}
 {{ assets.js() }}
