@@ -7,7 +7,10 @@ require_once 'recipe/common.php';
 // Configuration
 inventory('deploy/servers.yml');
 
-set('env', 'prod');
+set('env', [
+    'APP_ENV' => 'prod',
+]);
+
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
 set('http_user', 'www-data');
@@ -45,9 +48,9 @@ task('deploy', [
 // Tasks
 desc('Deploy production parameters and accounts');
 task('deploy:parameters', function () {
-    upload('./deploy/admin.{{env}}.yaml', '{{deploy_path}}/release/user/accounts/admin.yaml');
-    upload('./deploy/kate.{{env}}.yaml', '{{deploy_path}}/release/user/accounts/kate.yaml');
-    upload('./deploy/security.{{env}}.yaml', '{{deploy_path}}/release/user/config/security.yaml');
+    upload('./deploy/admin.prod.yaml', '{{deploy_path}}/release/user/accounts/admin.yaml');
+    upload('./deploy/kate.prod.yaml', '{{deploy_path}}/release/user/accounts/kate.yaml');
+    upload('./deploy/security.prod.yaml', '{{deploy_path}}/release/user/config/security.yaml');
 });
 
 desc('Restart PHP-FPM service');
