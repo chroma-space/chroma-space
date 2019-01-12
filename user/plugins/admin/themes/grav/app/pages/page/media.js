@@ -3,6 +3,7 @@ import request from '../../utils/request';
 import FilesField, { UriToMarkdown } from '../../forms/fields/files';
 import { config, translations } from 'grav-config';
 import { Instance as Editor } from '../../forms/fields/editor';
+import Sortable from 'sortablejs';
 
 const previewTemplate = `
     <div class="dz-preview dz-file-preview">
@@ -42,12 +43,42 @@ export default class PageMedia extends FilesField {
         if (typeof this.options.attachDragDrop === 'undefined' || this.options.attachDragDrop) {
             this.attachDragDrop();
         }
+
+        const field = $(`[name="${this.container.data('dropzone-field')}"]`);
+
+        if (field.length) {
+            this.sortable = new Sortable(this.container.get(0), {
+                animation: 150,
+                // forceFallback: true,
+                setData: (dataTransfer, target) => {
+                    target = $(target);
+                    let uri = encodeURI(target.find('.dz-filename').text());
+                    let shortcode = UriToMarkdown(uri);
+                    this.dropzone.disable();
+                    target.addClass('hide-backface');
+                    dataTransfer.effectAllowed = 'copy';
+                    dataTransfer.setData('text', shortcode);
+                },
+                onSort: () => {
+                    let names = [];
+                    this.container.find('[data-dz-name]').each((index, file) => {
+                        file = $(file);
+                        const name = file.text().trim();
+                        names.push(name);
+                    });
+
+                    field.val(names.join(','));
+                }
+            });
+        }
     }
 
     fetchMedia() {
+        const order = this.container.closest('.form-field').find('[name="data[header][media_order]"]').val();
+        const body = { uri: this.getURI(), order };
         let url = this.urls.fetch;
 
-        request(url, { method: 'post' }, (response) => {
+        request(url, { method: 'post', body }, (response) => {
             let results = response.results;
 
             Object.keys(results).forEach((name) => {
@@ -72,13 +103,20 @@ export default class PageMedia extends FilesField {
 
         formData.append('name', this.options.dotNotation);
         formData.append('admin-nonce', config.admin_nonce);
+        formData.append('uri', this.getURI());
     }
 
     onDropzoneComplete(file) {
         super.onDropzoneComplete(file);
+        this.sortable.options.onSort();
 
         // accepted
         $('.dz-preview').prop('draggable', 'true');
+    }
+
+    onDropzoneRemovedFile(file, ...extra) {
+        super.onDropzoneRemovedFile(file, ...extra);
+        this.sortable.options.onSort();
     }
 
     attachDragDrop() {
@@ -101,7 +139,7 @@ export default class PageMedia extends FilesField {
             let file = target.parent('.dz-preview').find('.dz-filename');
             let filename = encodeURI(file.text());
             let URL = target.closest('[data-media-path]').data('media-path');
-            let original = this.dropzone.files.filter((file) => file.name === filename).shift().extras.original;
+            let original = this.dropzone.files.filter((file) => encodeURIComponent(file.name) === filename).shift().extras.original;
 
             target.attr('href', `${URL}/${original}`);
         });
@@ -159,4 +197,3 @@ export default class PageMedia extends FilesField {
 }
 
 export let Instance = new PageMedia();
-

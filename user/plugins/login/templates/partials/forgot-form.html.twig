@@ -1,9 +1,10 @@
+{% set client_side_validation = form.client_side_validation is not null ? form.client_side_validation : config.plugins.form.client_side_validation|default(true) %}
+{% set inline_errors = form.inline_errors is not null ? form.inline_errors : config.plugins.form.inline_errors(false) %}
+
 <section id="grav-login">
     {{ content|raw }}
 
-    {% include 'partials/messages.html.twig' %}
-
-    <form method="post" action="{{ base_url_relative ~ uri.path }}">
+    <form method="post" action="{{ (base_url_relative ~ uri.path)|e }}">
         {% for field in form.fields %}
             {% if field.type %}
                 <div>

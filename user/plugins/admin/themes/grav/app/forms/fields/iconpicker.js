@@ -8,7 +8,7 @@ import $ from 'jquery';
 
 var defaults = {
     'mode': 'dialog', // show overlay 'dialog' panel or slide down 'inline' panel
-    'closeOnPick': true,   // whether to close panel after picking or 'no'
+    'closeOnPick': true, // whether to close panel after picking or 'no'
     'save': 'class', // save icon 'class' or 'code'
     'size': '',
     'classes': {
@@ -17,7 +17,7 @@ var defaults = {
         'highlight': '', // extra classes when highlighting an icon
         'close': '' // extra classes for close button
     },
-    'iconSets': {          // example data structure. Used to specify which launchers will be created
+    'iconSets': { // example data structure. Used to specify which launchers will be created
         'genericon': 'Genericon', // create a launcher to pick genericon icons
         'fa': 'FontAwesome' // create a launcher to pick fontawesome icons
     }
@@ -94,7 +94,7 @@ class QL_Icon_Picker {
         var $close = $('<a href="#" class="icon-picker-close"/>');
 
         if (base.settings.mode === 'inline') {
-            $brick.find('.icon-set').append($close).removeClass('dialog').addClass('inline ' + base.settings.size).parent().addClass('icon-set-wrap');
+            $brick.find('.icon-set').append($close).removeClass('dialog').addClass('ip-inline ' + base.settings.size).parent().addClass('icon-set-wrap');
         } else if (base.settings.mode === 'dialog') {
             $('.icon-set').addClass('dialog ' + base.settings.size);
             if ($('.icon-picker-overlay').length <= 0) {
@@ -186,8 +186,8 @@ class QL_Icon_Picker {
 
     showPicker($brick, $icons, mode) {
         if (mode === 'inline') {
-            $('.icon-set').removeClass('inline-open');
-            $brick.find($icons).toggleClass('inline-open');
+            $('.icon-set').removeClass('ip-inline-open');
+            $brick.find($icons).toggleClass('ip-inline-open');
         } else if (mode === 'dialog') {
             $brick.find('.icon-picker-close').addClass('make-visible');
             $brick.find('.icon-picker-overlay').addClass('make-visible');
@@ -212,7 +212,7 @@ class QL_Icon_Picker {
         $(this.iconSet).off('click', 'li');
 
         if (mode === 'inline') {
-            $brick.find($icons).removeClass('inline-open');
+            $brick.find($icons).removeClass('ip-inline-open');
         } else if (mode === 'dialog') {
             $('.icon-picker-close, .icon-picker-overlay').removeClass('make-visible');
         }
@@ -229,6 +229,18 @@ class QL_Icon_Picker {
             .addClass(preview);
         $preview.find('a').show();
     }
+}
+
+/* Grav */
+// extend $ with 3rd party QL Icon Picker
+$.fn.qlIconPicker = function(options) {
+    this.each(function() {
+        if (!$.data(this, 'plugin_qlIconPicker')) {
+            $.data(this, 'plugin_qlIconPicker', new QL_Icon_Picker(this, options));
+        }
+    });
+
+    return this;
 };
 
 export default class IconpickerField {
@@ -256,33 +268,31 @@ export default class IconpickerField {
     addItem(element) {
         element = $(element);
         this.items = this.items.add(element);
-
-        $.fn.qlIconPicker = function(options) {
-            this.each(function() {
-                if (!$.data(this, 'plugin_qlIconPicker')) {
-                    $.data(this, 'plugin_qlIconPicker', new QL_Icon_Picker(this, options));
-                }
-            });
-            return this;
-        };
-
-        $('.icon-picker').qlIconPicker({
+        element.find('.icon-picker').qlIconPicker({
             'save': 'class'
         });
+
+        // hack to remove extra icon sets that are just copies
+        $('.icon-set:not(:first)').remove();
     }
 }
 
 export let Instance = new IconpickerField();
 
-$.fn.qlIconPicker = function(options) {
-    this.each(function() {
-        if (!$.data(this, 'plugin_qlIconPicker')) {
-            $.data(this, 'plugin_qlIconPicker', new QL_Icon_Picker(this, options));
-        }
-    });
-    return this;
-};
+// Fix to close the dialog when clicking outside
+$(document).on('click', (event) => {
+    const target = $(event.target);
+    const match = '.icon-set.dialog-open, .launch-icons[data-icons]';
+    if (!target.is(match) && !target.closest(match).length) {
+        const dialogs = $('.icon-set.dialog-open');
 
-$('.icon-picker').qlIconPicker({
-    'save': 'class'
+        // skip if there's no dialog open
+        if (dialogs.length) {
+            dialogs.each((index, dialog) => {
+                const picker = $(dialog).siblings('.icon-picker');
+                const data = picker.data('plugin_qlIconPicker');
+                data.closePicker(picker, $(data.iconSet), data.settings.mode);
+            });
+        }
+    }
 });

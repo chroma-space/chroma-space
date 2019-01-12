@@ -22,8 +22,9 @@ form {
     }
 
     .form-description {
-        font-weight: bold;
-        font-size: small;
+        p {
+            padding: 0;
+        }
     }
 
     .form-field {
@@ -84,7 +85,7 @@ form {
             text-align: center;
         }
         input {
-            height: 43px;
+            height: 35px;
             display: table-cell;
         }
         .form-input-prepend {
@@ -130,6 +131,10 @@ form {
         font-weight: 400;
         margin:0;
 
+        p {
+            margin: 0;
+        }
+
         [data-hint] {
             display: inline;
         }
@@ -142,6 +147,15 @@ form {
 
         &.toggleable {
             display: inline;
+        }
+    }
+
+    .form-sublabel {
+        p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin: 10px 20px 0 0;
+            padding: 0;
         }
     }
 
@@ -279,6 +293,13 @@ form {
         textarea {
             height: 7rem;
         }
+
+        &[data-grav-array-type="container"] {
+            max-width: 100% !important;
+            input[type=text] {
+                width: calc(70% - 110px);
+            }
+        }
     }
 
     .large, .large.form-input-addon-wrapper input {
@@ -286,6 +307,13 @@ form {
 
         textarea {
             height: 10rem;
+        }
+
+        &[data-grav-array-type="container"] {
+            max-width: 100% !important;
+            input[type=text] {
+                width: calc(100% - 110px);
+            }
         }
     }
 
@@ -344,10 +372,13 @@ form {
         .form-row {
             display: inline-block;
             width: 100%;
+            margin-right: 0;
+            max-width: 100% !important;
+
             span {
                 padding: 0.5rem;
                 display: inline-block;
-                line-height: 1.7;
+                line-height: 1.5;
                 cursor: pointer;
 
                 &[data-grav-array-action="sort"] {
@@ -573,7 +604,7 @@ textarea.frontmatter {
     letter-spacing: normal;
 }
 .form-fieldset {
-    margin: 1rem 2rem;
+    margin: 1rem 1.5rem;
 }
 
 .form-fieldset--label {
@@ -635,9 +666,9 @@ textarea.frontmatter {
         height: 39px;
     }
 
-    .switch-toggle label {
-        white-space: nowrap;
+    .switch-toggle {
+        line-height: 37px;
+        margin: 0 5px 5px 0;
+
     }
 }
-
-

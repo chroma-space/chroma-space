@@ -2,7 +2,7 @@
 /**
  * @package    Grav.Common
  *
- * @copyright  Copyright (C) 2014 - 2017 RocketTheme, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -240,12 +240,18 @@ class Cache extends Getters
             case 'redis':
                 $redis = new \Redis();
                 $socket = $this->config->get('system.cache.redis.socket', false);
+                $password = $this->config->get('system.cache.redis.password', false);
 
                 if ($socket) {
                     $redis->connect($socket);
                 } else {
                     $redis->connect($this->config->get('system.cache.redis.server', 'localhost'),
                     $this->config->get('system.cache.redis.port', 6379));
+                }
+
+                // Authenticate with password if set
+                if ($password && !$redis->auth($password)) {
+                    throw new \RedisException('Redis authentication failed');
                 }
 
                 $driver = new DoctrineCache\RedisCache();
@@ -384,6 +390,7 @@ class Cache extends Getters
             // Convert stream to a real path
             try {
                 $path = $locator->findResource($stream, true, true);
+                if($path === false) continue;
 
                 $anything = false;
                 $files = glob($path . '/*');
@@ -420,6 +427,14 @@ class Cache extends Getters
 
             $output[] = '<red>Touched: </red>' . $user_config;
             $output[] = '';
+        }
+
+        // Clear stat cache
+        @clearstatcache();
+
+        // Clear opcache
+        if (function_exists('opcache_reset')) {
+            @opcache_reset();
         }
 
         return $output;

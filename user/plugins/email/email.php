@@ -1,10 +1,12 @@
 <?php
 namespace Grav\Plugin;
 
+use Grav\Common\Grav;
 use Grav\Common\Plugin;
 use Grav\Common\Twig\Twig;
 use Grav\Plugin\Email\Email;
 use RocketTheme\Toolbox\Event\Event;
+use Swift_RfcComplianceException;
 
 class EmailPlugin extends Plugin
 {
@@ -69,6 +71,9 @@ class EmailPlugin extends Plugin
                 $vars = array(
                     'form' => $form
                 );
+
+                $grav = Grav::instance();
+                $grav->fireEvent('onEmailSend', new Event(['params' => &$params, 'vars' => &$vars]));
 
                 // Build message
                 $message = $this->buildMessage($params, $vars);
@@ -141,7 +146,11 @@ class EmailPlugin extends Plugin
             switch ($key) {
                 case 'bcc':
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addBcc($address->mail, $address->name);
+                        try {
+                            $message->addBcc($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -195,7 +204,11 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addCc($address->mail, $address->name);
+                        try {
+                            $message->addCc($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -208,7 +221,11 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addFrom($address->mail, $address->name);
+                        try {
+                            $message->addFrom($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -221,7 +238,11 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addReplyTo($address->mail, $address->name);
+                        try {
+                            $message->addReplyTo($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
 
@@ -238,7 +259,11 @@ class EmailPlugin extends Plugin
                     }
 
                     foreach ($this->parseAddressValue($value, $vars) as $address) {
-                        $message->addTo($address->mail, $address->name);
+                        try {
+                            $message->addTo($address->mail, $address->name);
+                        } catch (Swift_RfcComplianceException $e) {
+                            continue;
+                        }
                     }
                     break;
             }

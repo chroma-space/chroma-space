@@ -3,11 +3,12 @@
 namespace Grav\Plugin\Console;
 
 use Grav\Common\Grav;
-use Grav\Common\Page\Page;
 use Grav\Console\ConsoleCommand;
-use Grav\Plugin\SocialFeed\Model\Post;
+use Grav\Plugin\SocialFeed\Api\FacebookApi;
+use Grav\Plugin\SocialFeed\Api\InstagramApi;
+use Grav\Plugin\SocialFeed\Api\SocialApi;
+use Grav\Plugin\SocialFeed\Api\TwitterApi;
 use Grav\Plugin\SocialFeed\Manager\PostManager;
-use Grav\Common\GPM\Response;
 
 /**
  * SocialFeedCommand.
@@ -27,7 +28,8 @@ class SocialFeedCommand extends ConsoleCommand
     {
         $this
             ->setName('fetch:posts')
-            ->setDescription('This command fetch posts from Facebook, Twitter and Instagram, for all accounts listed in the plugin configuration form.');
+            ->setDescription('This command fetch posts from Facebook, Twitter and Instagram, for all accounts listed in the plugin configuration form.')
+        ;
     }
 
     /**
@@ -35,106 +37,71 @@ class SocialFeedCommand extends ConsoleCommand
      */
     protected function serve()
     {
+        require_once __DIR__.'/../vendor/autoload.php';
+
         $posts = array();
         $manager = new PostManager(true);
-
-        $posts = $this->get();
-
-        if (!$posts) {
-            $this->error('No posts could be retrieved.');
-            return;
-        }
-
-        foreach ($posts as $item) {
-            
-            $post = new Post();
-            
-            $post->setProvider("instagram");
-            $post->setPostId($item->id);
-            $post->setAuthorUsername($item->user->username);
-            $post->setAuthorName($item->user->full_name);
-            $post->setAuthorFileUrl($item->user->profile_picture);
-
-            if (isset($item->caption->text)) {
-                $post->setHeadline(strip_tags($item->caption->text));
-                $text = $this->getFormattedTextFromPost($item);
-                $post->setBody($text);
+        $config = self::$grav['config']->get('plugins.social-feed');
+        foreach ($this->getReadyApis() as $networkName => $api) {
+            foreach ($config[$networkName.'_feeds'] as $feed) {
+                try {
+                    foreach ($api->getUserPostObjects($feed['username']) as $post) {
+                        $manager->storeAttachments($post);
+                        $posts[] = $post;
+                    }
+                } catch (\Exception $e) {
+                    $this->error(sprintf('Fetching posts from %s failed. Error: %s', $networkName, $e->getMessage()));
+                }
             }
-            
-            $post->setFileUrl($item->images->standard_resolution->url);
-            $post->setLink($item->link);
-
-            $publishedAt = new \DateTime();
-            $publishedAt->setTimestamp($item->created_time);
-
-            $post->setPublishedAt($publishedAt);
-
-            $manager->storeAttachments($post);
-            $posts[] = $post;
         }
-
         $manager->savePosts($posts);
         $this->success('Social network post fetching has finished.');
     }
 
     /**
-     * get the data of the given user's feed
+     * Get apis ready to be used.
      *
-     * @param null $username
-     * @return bool | Object
+     * @return SocialApi[]
      */
-    private function get() {
-
-        $config = self::$grav['config']->get('plugins.social-feed');
-        $username = $config['instagram_username'];
-        
-        try {
-            $feed = 'https://www.instagram.com/'.$username.'/media/';
-            // using the Grav Response Class for the curl request to instagram.
-            $result = Response::get($feed);
-        } catch(\Exception $e) {
-            return false;
-        }
-
-        return $this->parseData($result);
-    }
-
-    /**
-     * parse json data;
-     *
-     * @param string $json
-     * @return bool | Object
-     */
-    private function parseData($json) {
-        if (!is_string($json)) {
-            return false;
-        }
-
-        $data = json_decode($json);
-
-        if ($data->status == 'ok') {
-            return $data->items;
-        } else {
-            return false;
-        }
-    }
- 
-    /**
-     * Get formated text from post.
-     *
-     * @param \stdClass $item
-     *
-     * @return string
-     */
-    private function getFormattedTextFromPost($item)
+    protected function getReadyApis()
     {
-        $text = $item->caption->text;
-        // Add href for links prefixed with ***:// (*** is most likely to be http(s) or ftp
-        $text = preg_replace("#(^|[\n ])([\w]+?://[\w]+[^ \"\n\r\t< ]*)#", '\\1<a href="\\2" target="_blank">\\2</a>', $text);
-        // Add href for links starting with www or ftp
-        $text = preg_replace("#(^|[\n ])((www|ftp)\.[^ \"\t\n\r< ]*)#", '\\1<a href="http://\\2" target="_blank">\\2</a>', $text);
+        $apis = array();
+        $config = self::$grav['config']->get('plugins.social-feed');
+        // Facebook api
+        if (
+            isset($config['facebook_app_id']) && $config['facebook_app_id'] &&
+            isset($config['facebook_app_secret']) && $config['facebook_app_secret'] &&
+            isset($config['facebook_feeds']) && count($config['facebook_feeds']) > 0
+        ) {
+            $apis['facebook'] = new FacebookApi([
+                'app_id' => $config['facebook_app_id'],
+                'app_secret' => $config['facebook_app_secret'],
+            ]);
+        }
+        // Twitter api
+        if (
+            isset($config['twitter_consumer_key']) && $config['twitter_consumer_key'] &&
+            isset($config['twitter_consumer_secret']) && $config['twitter_consumer_secret'] &&
+            isset($config['twitter_feeds']) && count($config['twitter_feeds']) > 0
+        ) {
+            $apis['twitter'] = new TwitterApi([
+                'consumer_key' => $config['twitter_consumer_key'],
+                'consumer_secret' => $config['twitter_consumer_secret'],
+            ]);
+        }
+        // Instagram api
+        if (
+            isset($config['instagram_client_secret']) && $config['instagram_client_secret'] &&
+            isset($config['instagram_access_token']) && $config['instagram_access_token'] &&
+            isset($config['instagram_feeds']) && count($config['instagram_feeds']) > 0
+        ) {
+            $apis['instagram'] = new InstagramApi([
+                'client_secret' => $config['instagram_client_secret'],
+                'access_token' => $config['instagram_access_token'],
+            ]);
+        }
 
-        return $text;
+        return $apis;
     }
 
     /**

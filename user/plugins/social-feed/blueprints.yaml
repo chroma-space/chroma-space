@@ -1,12 +1,14 @@
-name: Social Feed Reworked
-version: 0.1.1
-description: This Grav plugin allows you to fetch feeds from social networks - reworked from the Social Feed plugin
+name: Social Feed
+version: 0.1.2
+description: This Grav plugin allow you to fetch feeds from social networks, and give you tools for displaying them in your website.
 icon: share-alt
 author:
-  name: Tchap
-  email: tchap@tchap.me
-homepage: https://tchap.me
+  name: Kévin Marcachi
+  email: kevin.marcachi@acseo.fr
+homepage: https://github.com/moduleon/grav-plugin-social-feed
 keywords: grav, plugin, social feed
+bugs: https://github.com/moduleon/grav-plugin-social-feed/issues
+docs: https://github.com/moduleon/grav-plugin-social-feed/blob/develop/README.md
 license: MIT
 
 form:
@@ -22,6 +24,21 @@ form:
         0: Disabled
       validate:
         type: bool
+    enablessl:
+      type: toggle
+      label: Enable SSL
+      highlight: 1
+      default: 1
+      options:
+        1: Enabled
+        0: Disabled
+      validate:
+        type: bool
+    certpath:
+      type: text
+      label: 'Path to SSL Cert (cafile)'
+      placeholder: default
+      help: 'Leave blank, if not known'
     twitter:
       type: section
       title: Twitter config
@@ -40,6 +57,24 @@ form:
             .username:
               type: text
               label: Username
+    facebook:
+      type: section
+      title: Facebook config
+      underline: true
+      fields:
+        facebook_app_id:
+          type: text
+          label: App id
+        facebook_app_secret:
+          type: text
+          label: App secret
+        facebook_feeds:
+          type: list
+          label: Accounts to follow
+          fields:
+            .username:
+              type: text
+              label: Username
     instagram:
       type: section
       title: Instagram config
@@ -51,6 +86,10 @@ form:
         instagram_access_token:
           type: text
           label: Access token
-        instagram_username:
-          type: text
-          label: Username
+        instagram_feeds:
+          type: list
+          label: Accounts to follow
+          fields:
+            .username:
+              type: text
+              label: Username
