@@ -2,3 +2,7 @@ enabled: true
 instagram_client_id: c2b2fbe772e64ffd92edf8809c7feb1a
 instagram_access_token: 2988347002.c2b2fbe.888d94893a7b4b128af449c5796f9575
 instagram_username: chroma.space
+enablessl: true
+instagram_feeds:
+  -
+    username: chroma.space
