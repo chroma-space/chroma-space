@@ -42,6 +42,11 @@ tests/error.log
 deploy/*
 !deploy/nginx.conf
 
+CHANGELOG.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+LICENSE.txt
+webserver-configs
 TODO.todo
 
 user/media/*.jpeg
