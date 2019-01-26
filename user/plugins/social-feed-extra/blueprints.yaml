@@ -1,0 +1,10 @@
+name: Social Feed Extra
+version: 1.0.0
+description: This Grav plugin adds a Twig extension to the social-feed plugin.
+icon: share-alt
+author:
+  name: Tchap
+  email: tchap@tchap.me
+homepage: https://github.com/chroma.space
+keywords: grav, plugin, social feed
+license: MIT
