@@ -12,6 +12,10 @@ These are available via GPM, and because the plugin has dependencies you just ne
 $ bin/gpm install login
 ```
 
+# Changes in version 3.1
+
+* `onUserActivated`         Allows plugins to hook into user activation, when user has clicked on confirmation email.
+
 # Changes in version 2.6
 
 * User registration is now disabled by default.  If you were relying on it being activated, you need to manually enable it in your `user/config/plugins/login.yaml`:
@@ -62,7 +66,7 @@ A good location is probably to add this right above where your content is going 
 
 # Creating Users
 
-You can either use the built-in CLI capabilities, or you create a user manually by creating a new YAML file in your `user/acounts` folder.
+You can either use the built-in CLI capabilities, or you create a user manually by creating a new YAML file in your `user/accounts` folder.
 
 
 # CLI Usage
@@ -161,10 +165,10 @@ rememberme:
   timeout: 604800                           # Timeout in seconds. Defaults to 1 week
   name: grav-rememberme                     # Name prefix of the session cookie
 
-max_pw_resets_count: 0                      # Number of password resets in a specific time frame (0 = unlimited)
+max_pw_resets_count: 2                      # Number of password resets in a specific time frame (0 = unlimited)
 max_pw_resets_interval: 60                  # Time in minutes to track password resets
-max_login_count: 0                          # Number of failed login attempts in a specific time frame (0 = unlimited)
-max_login_interval: 2                       # Time in minutes to track login attempts
+max_login_count: 5                          # Number of failed login attempts in a specific time frame (0 = unlimited)
+max_login_interval: 10                      # Time in minutes to track login attempts
 
 user_registration:
   enabled: false                            # Enable User Registration Process
