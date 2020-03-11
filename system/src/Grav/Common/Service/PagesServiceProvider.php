@@ -1,8 +1,9 @@
 <?php
+
 /**
- * @package    Grav.Common.Service
+ * @package    Grav\Common\Service
  *
- * @copyright  Copyright (C) 2015 - 2018 Trilby Media, LLC. All rights reserved.
+ * @copyright  Copyright (C) 2015 - 2019 Trilby Media, LLC. All rights reserved.
  * @license    MIT License; see LICENSE file for details.
  */
 
@@ -17,10 +18,27 @@ use Grav\Common\Uri;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
-class PageServiceProvider implements ServiceProviderInterface
+class PagesServiceProvider implements ServiceProviderInterface
 {
     public function register(Container $container)
     {
+        $container['pages'] = function ($c) {
+            return new Pages($c);
+        };
+
+        if (\defined('GRAV_CLI')) {
+            $container['page'] = static function ($c) {
+                $path = $c['locator']->findResource('system://pages/notfound.md');
+                $page = new Page();
+                $page->init(new \SplFileInfo($path));
+                $page->routable(false);
+
+                return $page;
+            };
+
+            return;
+        }
+
         $container['page'] = function ($c) {
             /** @var Grav $c */
 
