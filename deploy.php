@@ -15,7 +15,7 @@ set('ssh_type', 'native');
 set('ssh_multiplexing', true);
 set('http_user', 'www-data');
 set('default_stage', 'production');
-set('repository', 'git@github.com:tchapi/chroma-space.git');
+set('repository', 'git@github.com:chroma-space/chroma-space.git');
 set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp', 'user/accounts', 'user/pages', 'user/data', 'user/media', 'user/chroma.space']);
 set('writable_mode', "chown");
 set('shared_dirs', ['user/accounts', 'user/data', 'user/pages', 'user/media', 'backup', 'images', 'user/chroma.space']);
