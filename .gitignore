@@ -21,7 +21,6 @@ user/accounts/*
 !user/accounts/.*
 user/data/*
 !user/data/.*
-user/localhost/config/security.yaml
 user/chroma.space
 
 # OS Generated
@@ -30,8 +29,6 @@ ehthumbs.db
 Icon?
 Thumbs.db
 *.swp
-
-user/config/security.yaml
 
 tests/_output/*
 tests/_support/_generated/*

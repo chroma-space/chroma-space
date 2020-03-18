@@ -15,8 +15,6 @@ To fetch Instagram post once, run :
 
     cd /var/www/chroma.space/current/ && bin/plugin social-feed fetch:posts
 
-> NB : if the token expires, just call : https://www.instagram.com/oauth/authorize/?client_id=c2b2fbe772e64ffd92edf8809c7feb1a&redirect_uri=http://www.chroma.space&response_type=token in a browser, login as chroma.space and authorize the app, the page will redirect and you will get an access token
-
 ### Deployment
 
 We use [Deployer](https://deployer.org/) to build the site and deploy it on the [chroma.space](http://chroma.space) server. Deployer expects a `server.yml` file in `/deploy` that lists the stages, especially `production`.
