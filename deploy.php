@@ -16,9 +16,9 @@ set('ssh_multiplexing', true);
 set('http_user', 'www-data');
 set('default_stage', 'production');
 set('repository', 'git@github.com:tchapi/chroma-space.git');
-set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp', 'user/pages', 'user/data', 'user/media']);
+set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp', 'user/accounts', 'user/pages', 'user/data', 'user/media', 'user/chroma.space']);
 set('writable_mode', "chown");
-set('shared_dirs', ['user/data', 'user/pages', 'user/media', 'backup', 'images']);
+set('shared_dirs', ['user/accounts', 'user/data', 'user/pages', 'user/media', 'backup', 'images', 'user/chroma.space']);
 set('clear_paths', [
   './README.md',
   './LICENSE.txt',
@@ -46,12 +46,6 @@ task('deploy', [
 ]);
 
 // Tasks
-desc('Deploy production parameters and accounts');
-task('deploy:parameters', function () {
-    upload('./deploy/admin.prod.yaml', '{{deploy_path}}/release/user/accounts/admin.yaml');
-    upload('./deploy/kate.prod.yaml', '{{deploy_path}}/release/user/accounts/kate.yaml');
-    upload('./deploy/security.prod.yaml', '{{deploy_path}}/release/user/config/security.yaml');
-});
 
 desc('Restart PHP-FPM service');
 task('php-fpm:restart', function () {
@@ -63,7 +57,6 @@ task('php-fpm:restart', function () {
 // Hooks
 after('deploy', 'success');
 after('deploy:symlink', 'php-fpm:restart');
-after('deploy:update_code', 'deploy:parameters');
 after('deploy:failed', 'deploy:unlock');
 
 // Special task to upload all the pages while developing

@@ -22,7 +22,7 @@ user/accounts/*
 user/data/*
 !user/data/.*
 user/localhost/config/security.yaml
-user/config/security.yaml
+user/chroma.space
 
 # OS Generated
 .DS_Store*

@@ -5,8 +5,6 @@ author:
   email: kate@chroma.space
 taxonomies:
   - tags
-metadata:
-  description: 'chroma.space is a creative studio investigating the warp & the rift to feel out alternatives on the horizon.  ecosphere ∩ cybersphere'
 summary:
   enabled: true
   format: short
