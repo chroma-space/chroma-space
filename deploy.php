@@ -14,10 +14,11 @@ set('env', [
 set('ssh_type', 'native');
 set('ssh_multiplexing', true);
 set('http_user', 'www-data');
+
 set('default_stage', 'production');
 set('repository', 'git@github.com:chroma-space/chroma-space.git');
 set('writable_dirs', ['cache', 'logs', 'images', 'user', 'backup', 'tmp', 'user/accounts', 'user/pages', 'user/data', 'user/media', 'user/chroma.space']);
-set('writable_mode', "chown");
+
 set('shared_dirs', ['user/accounts', 'user/data', 'user/pages', 'user/media', 'backup', 'images', 'user/chroma.space']);
 set('clear_paths', [
   './README.md',
@@ -40,6 +41,7 @@ task('deploy', [
     'deploy:vendors',
     'deploy:clear_paths',
     'deploy:writable',
+    'folder_rights:enforce',
     'deploy:symlink',
     'deploy:unlock',
     'cleanup',
@@ -52,6 +54,11 @@ task('php-fpm:restart', function () {
     // The user must have rights for restart service
     // /etc/sudoers: username ALL=NOPASSWD:/bin/systemctl restart php-fpm.service
     run('sudo systemctl restart php7.2-fpm.service');
+});
+
+desc('Make sure release folder belongs to www-data');
+task('folder_rights:enforce', function () {
+    run('chown -R www-data:www-data {{release_path}}');
 });
 
 // Hooks
