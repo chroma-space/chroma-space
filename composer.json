@@ -50,7 +50,6 @@
         "composer/ca-bundle": "^1.0",
         "dragonmantank/cron-expression": "^1.2",
         "phive/twig-extensions-deferred": "^1.0",
-        "deployer/deployer": "^6.4",
         "willdurand/negotiation": "2.x-dev"
     },
     "require-dev": {
